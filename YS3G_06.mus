@@ -65,7 +65,7 @@
 19 ]0
 
 B [
-B @15 V11 L8 O6
+B @15 V11 L8 O6 HF
 B [
 B c1 &c1 c1 &c1
 B f1 &f1 f1 &f1
@@ -76,7 +76,7 @@ B ]2
 B ]0
 
 C [
-C @15 V11 L8 O5
+C @15 V11 L8 O5 HF
 C [
 C g1 &g1 g1 &g1>
 C c1 &c1 c1 &c1<
@@ -88,8 +88,8 @@ C ]0
 
 DE [
 DE [
-D  @15 V13 L8 O3    H0,1,2,2
-E  @15 V10 L8 O3 \2 H0,1,2,2
+D  @15 V13 L8 O3    H0,1,2,2 HO
+E  @15 V10 L8 O3 \2 H0,1,2,2 HO
 DE c1 &c2&c<g4.  >c1 &c2&c<b16>c4&c16
 DE f1 &f2&fc4&c |f1  &f2&f<b4&b>
 DE ]2
@@ -100,12 +100,12 @@ DE ]
 DE ]0
 
 2 [
-2 @e1 V9 L8 O4
+2 @e1 V9 L8 O4 HF
 2 [
 2 c1 &c1 c1 &c1
 2 c1 &c1 c1 &c1
 2 ]
-2 d2&d6d6e6 f1 c1 &c1
+2 [d2&d6d6e6 f1 c1 &c1]
 2 ]0
 
 3 [
