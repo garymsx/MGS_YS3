@@ -1,0 +1,106 @@
+;[gain=1.0 name=YS3G_04 duration=300s fade=5s]
+; The line above defines the extra options for MSXplay.js.
+; gain    : specify the volume gain of the playback. It is just linear multiplier, not dB.
+; name    : specify the name of the mml, use as the base download filename.
+; duration: specify the length of the song.
+; fade    : specify the fade time.
+#opll_mode 0
+#tempo 117
+#title { "静かな時"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc 0=1000
+;#alloc { 3=100
+;        ,5=256
+;       }
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, deef8=160}
+
+@e11 = {2, 5, fecba9876543210 }
+@e12 = {2, 5, fe0=60 }
+
+;* PSG
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {22, 6,15, 2, 2, 1, 0, 2, 0, 0, 0, 0, 1
+             ,15, 1, 1, 3, 0, 1, 0, 0, 0, 0, 0}
+
+;* PSG2
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v16 = {13, 2,15, 1, 1, 1, 1, 4, 0, 0, 0, 0, 1
+             ,15, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32}
+
+A r16
+9A [
+9 @15 V13 L8 O4 H10,1,2,2
+A @15 V11 L8 O4 \1 H10,1,2,2
+9A a4>er4e dc<bag+e a4b4>c4 <f+2.
+9A a4>er4e dc<bag+e a4ab>cd g4f+4d4
+9  @16 V13 L8 O5 H10,1,2,1
+A  @16 V11 L8 O5 H10,1,2,1
+9A d4e4d4  c4&c<b>c4 d4e4d4 <a2.
+9A >d4e4d4 c4<b4>c4  <b2.   >g+4e2
+9A d4e4d4  c4&c<b>c4 d4e4d4 <a2.
+9A >d4e4d4 c4<b4>c4  <b2.   >e2.
+9A ]0
+
+DE [
+D @13 V13 L8 O2
+E @14 V13 L8 O2 \2 H10,1,2,1
+DE a2.    >d2&dd< a2. >d2&dd <a2.> d2&dd
+DE <a2&aa a4>cdeg   d4.dfa   <a4.a>gf
+DE d4.dfa <a4.a>gf  d4.dfa   <a4.a>gf
+DE <e2&ee ebg+>edg+ d4.dfa   <a4.a>gf
+DE d4.dfa <a4.a>gf  d4.dfa   <a4.a>gf
+DE <e2&ee >e4g+ab>c
+DE ]0
+
+1 [
+1 @e1 V10 L8 O3 H0,1,1,1
+1 a>egab>c  d4c4&c<a  <a>egab>c d4c4&c<a <a>egab>c  d4c4&c<a  <a>egab>c  dc  V+ de   V+f+g V-2
+1 d<fa>cde  c<bab>c<a >d<fa>cde c<ba2    >d<fa>cde  c<bab>c<a beg+b>de   g+e V+ g+b> de V-1
+1 <d<fa>cde c<bab>c<a >d<fa>cde c<ba2    >d<fa>cde  c<bab>c<a beg+b>de   g+e V+ g+b> de V-1
+1 ]0
+
+2 r16
+2 [
+2 @e1 V7 L8 O3 \1 H0,1,1,1
+2 a>egab>c   d4c4&c<d  <a>egab>c d4c4&c<d    <a>egab>c   d4c4&c<d
+2 <a>egab>c  dcdef+g   d<fa>cde  c<bab>c<a   >d<fa>cde   c<ba2
+2 >d<fa>cde  c<bab>c<a beg+b>de  g+eg+b>de   <d<fa>cde   c<bab>c<a
+2 >d<fa>cde  c<ba2     >d<fa>cde c<bab>c<a   beg+b>de    g+eg+b>de
+2 ]0
+
+3 [
+3 V10 L4 O3
+3 [
+3 @e12c @e11cc @e12c @e11cc8c8 @e12c @e11cc           @e12c @e11cr8c8
+3 @e12c @e11cc @e12c @e11cc8c8 @e12c @e11c8c8c8V+c8 V+@e12c @e11c16c16c16r16V+c8c8V-3
+3 ]3
+3 ]0
