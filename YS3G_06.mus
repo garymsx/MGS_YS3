@@ -1,0 +1,116 @@
+;[gain=1.0 name=YS3G_06 duration=300s fade=5s]
+; The line above defines the extra options for MSXplay.js.
+; gain    : specify the volume gain of the playback. It is just linear multiplier, not dB.
+; name    : specify the name of the mml, use as the base download filename.
+; duration: specify the length of the song.
+; fade    : specify the fade time.
+#opll_mode 0
+#tempo 101
+#title { "冒険への序曲"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc 0=1000
+;#alloc { 3=100
+;        ,5=256
+;       }
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e1 = {1, 0, ef }
+@e2 = {1, 0, fe0=60 }
+
+@e11 = {2, 5, fe0=60 }
+
+;* ロングバス
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {20, 4,15, 2, 2, 0, 1, 1, 0, 0, 0, 0, 0
+             ,15, 1, 2, 0, 0, 4, 0, 0, 0, 0, 0}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32}
+
+9  r16
+19 [
+1  @e1 V11 L8 O4 H10,1,2,1
+9  @4  V11 L8 O5 H10,1,2,2 \1
+19 [
+19 [dcdg4d4c   dcdg4c4<g>]2
+19 [gfg>c4<g4f gfg>c4<g4c]2 
+19 ]
+19 [
+1  edea4e4d gfg>c<g+gfe &e1 &e1
+9  edea4e4d gfg>c<fedc  &c1 &c1
+19 ]
+19 ]0
+
+B [
+B @15 V11 L8 O6
+B [
+B c1 &c1 c1 &c1
+B f1 &f1 f1 &f1
+B ]
+B [
+B d2&d6<d6e6 >f1 c1&c1
+B ]2
+B ]0
+
+C [
+C @15 V11 L8 O5
+C [
+C g1 &g1 g1 &g1>
+C c1 &c1 c1 &c1<
+C ]
+C [
+C a2&a6<a6b6>> c1 <g1&g1
+C ]2
+C ]0
+
+DE [
+DE [
+D  @15 V13 L8 O3    H0,1,2,2
+E  @15 V10 L8 O3 \2 H0,1,2,2
+DE c1 &c2&c<g4.  >c1 &c2&c<b16>c4&c16
+DE f1 &f2&fc4&c |f1  &f2&f<b4&b>
+DE ]2
+DE f1  &f2<ab>cf
+DE [
+DE d2&d6d6e6 f4.c16d16fedc &c1 &c2&c8g4.
+DE ]
+DE ]0
+
+2 [
+2 @e1 V9 L8 O4
+2 [
+2 c1 &c1 c1 &c1
+2 c1 &c1 c1 &c1
+2 ]
+2 d2&d6d6e6 f1 c1 &c1
+2 ]0
+
+3 [
+3 @e11 V10 L32 O4
+3 [
+3 [c8c8c16c8c16c8c8cccccccc c16c16c16c16c16c8c16c8V+2c8V-2cccccccc]4
+3 ]4
+3 ]0
