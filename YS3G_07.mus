@@ -44,7 +44,7 @@
 @e11 = {2,10, fdb975310 }
 @e12 = {2, 0, fedcba9876543210 }
 @e13 = {2, 2, feeddccbbbaaa9998887776655443322110 }
-@e14 = {2, 2, f8=20 }
+@e14 = {2, 2, f0=80 }
 
 @e20 = {0, 0, ffedcb }
 @e21 = {0, 0, ffffeeeeddddcb976420 }
@@ -64,13 +64,14 @@
              
 ;* ƒƒCƒ“‚Q
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
-@v17 = {26, 7,15, 4, 2, 0, 0, 1, 0, 1, 0, 0, 0
+@v17 = {28, 7,15, 4, 2, 0, 0, 1, 0, 1, 0, 0, 0
              ,10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
 
 ;* ƒƒCƒ“‚R
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
-@v18 = {20, 4,15, 2, 2, 0, 0, 1, 0, 0, 0, 0, 0
-             ,15, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0}
+@v18 = {20, 5,15, 2, 2, 0, 0, 1, 0, 0, 0, 0, 0
+             ,10, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0}
+
 
 #macro_offset {f=150}
 
@@ -82,20 +83,20 @@ DE [
 D L16 V13 @13 O2
 E L16 V13 @10 O2 @e20 \1 H0,1,0,5
 ;DE V0
-DE [g8g>g<]4 [e-8e->e-<]2 [f8f>f<]2 [g8g>g<]8
-DE [g8g>g<]4 [e-8e->e-<]2 [f8f>f<]2 [g8g>g<]7 f8f>f<
-DE > [e-8.e-8.e-4. r4] [d8.d8.d4. r4]
+DE [grg>g<]4 [e-re->e-<]2 [frf>f<]2 [grg>g<]8
+DE [grg>g<]4 [e-re->e-<]2 [frf>f<]2 [grg>g<]7 frf>f<
+DE > [e-6e-6e-6 r2] [d6d6d6 r2]
 DE O3
-DE [c8cc]3 c8c<b- [b-8b-b-]3 b-8b-a [a8aa]3 a8a>d [d8dd]4
+DE [crcc]3 crc<b- [b-rb-b-]3 b-rb-a [araa]3 a8a>d [drdd]4
 DE O3
 DE [ g8<g>g8<g>g8 f8<f>f8<f>f8 e-8<e->e-8<e->e-8 f8<f>f8<f>f8 ]3
-DE   g8<g>g8<g>g8 f8<f>f8<f>f8 <e-8.e-8.e-8 r4>e-8r8 <e-8r8 [e-8e->e-<]3
-DE [f8f>f<]4 | [g8g>g<]8
+DE   g8<g>g8<g>g8 f8<f>f8<f>f8 <e-8.e-8.e-8 r4>e-8r8 <e-8r8 [e-re->e-<]3
+DE [frf>f<]4 | [grg>g<]8
 DE ]
-DE [g8g>g<]6 g8g-8a8>c8
+DE [grg>g<]6 grg-8a8>c8
 DE O2
-DE [[e-8>e-<e-]8 [g8>g<g]8]3
-DE [e-8>e-<e-]4 [f8>f<f]4
+DE [[e-r>e-<e-]8 [gr>g<g]8]3
+DE  [e-r>e-<e-]4 [fr>f<f]4
 DE >g8g8<g8>f4f8<f8>f8 e-8e-8<e-8>f4f8<f8>f8
 DE  g8g8<g8>f4f8<f8>f8 e-8e-8<e-8>d4.d4
 DE ]0
@@ -138,10 +139,10 @@ F r8b-b-b-b- Q8b-r Q1b-r<gg rrrr
 F [
 F [
 F [ [grrr>b-rrr<]7 grrr>b-b-b-b-< ]2
-F arrarrar r4>b-r<rr
-F arrarrar r4>b-rQ8b-Q1r<
-F arrarrar r4>b-r<rr
-F arrarrar r4>b-r<b-b-
+F a6a6a6 r4>b-r<rr
+F a6a6a6 r4>b-rQ8b-Q1r<
+F a6a6a6 r4>b-r<rr
+F a6a6a6 r4>b-r<b-b-
 F [grrr>b-rrr<]5 grrr>b-r<gg
 F >b-rrr >d-d-<aaff<gg >b-b-rb-<
 F [gr>b-<g r>b-<g>b-<]7
@@ -193,9 +194,9 @@ G ]0
 1 r8g8>f8c8d4.<b-8& b-4g4f6g6a6    b-2>r8aaaar8 r8aa aar8 arra r4<
 1 r8g8>f8c8d4.<b-8& b-4g4>c6<b-6a6 b-2>r8aaaar8 r8aa aar8 arra r4<
 1 @e1
-1 b-1& b-4>d4c4<b-8>c8& c2.. <a8& a2.. b-8& b-2&b-8>c8d8<b-8& b-2>c8d8e-8d8& d2e4.g-8& g-4<
+1 b-1& b-4>d4c4<b-8>c8& c2.. <a8& a2.. b-8& b-2&b-8>c8d8<b-8& b-2>c8d8e-8d8& d2e4.g-8& g-8r8<
 1 @e3
-1 a4b-8>c4d8& [d1 r4c4e-6d6c6]3 d6c6<b-6&b-8>c8d8b-8 a8.g8.g2
+1 a4b-8>c4d8& [d1 r4c4e-6d6c6]3 d6c6<b-6&b-8>c8d8b-8 a8.gr8g2
 1 @e1
 1 e-8& e-2.. f8& f2.. | g8& g1 r8gg ggr8 grrg r4<
 1 ]
@@ -213,9 +214,9 @@ G ]0
 2 r8b-8>c8<a8b-4.g8& g4e-4c6c6f6 g2 r8b-b-b-b-r8 r8b-b- b-b-r8 b-rrb- r4
 2 r8b-8>c8<a8b-4.g8& g4e-4f6c6c6 d2 r8b-b-b-b-r8 r8b-b- b-b-r8 b-rrb- r4
 2 @e1
-2 g1& g4b-4a4g8a8& a2.. f8& f2.. g8& g2.&g8g8& g2.. >c8& c1& c4<d4e8g-4g8
+2 g1& g4b-4a4g8a8& a2.. f8& f2.. g8& g2.&g8g8& g2.. >c8& c2c4.c8 &c8r8<d4e8g-4g8
 2 @e1
-2 >>[[b-gag]4]6 <<b-6a6g6&g8a8b-8>d8 e-8.e-8.e-2<
+2 >>[[b-gag]4]6 <<b-6a6g6&g8a8b-8>d8 e-8.e-r8e-2<
 2 @e1
 2 b-8& b-2..>c8& c2.. | d8& d1 r8dd ddr8 drrd r4<
 2 ]
@@ -252,10 +253,10 @@ C ]0
 3 [
 3 [
 3 [ [@e12c @e10ccc @e12c @e10ccc]7 @e12c @e10ccc @e12cccc ]2
-3 @e12crrcrrcr rr @e10cc @e12crrr
-3 @e12crrcrrcr rr @e10cc @e12cr @e13)c8(
-3 @e12crrcrrcr rr @e10cc @e12crrr
-3 @e12crrcrrcr rr @e10cc @e12crcc
+3 @e12c6c6c6 rr @e10cc @e12crrr
+3 @e12c6c6c6 rr @e10cc @e12cr @e13)c8(
+3 @e12c6c6c6 rr @e10cc @e12crrr
+3 @e12c6c6c6 rr @e10cc @e12crcc
 3 [@e12c @e10ccc @e12c @e10ccc]5 @e12c @e10ccc @e12c @e10c @e12cc
 3 @e12crrr @e12cccccccc ccrc
 3 [@e12crcc rccc]7
