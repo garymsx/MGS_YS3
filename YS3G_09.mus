@@ -63,6 +63,8 @@
 *0 = {Y6,255 Y7,255}
 *1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
 
+1239ABCDEFG V0 L4 HF HO
+
 9 @15 V9 L16 O4
 A @15 V9 L16 O5
 9A ; è¨êﬂÇ©ÇÁÇÕÇ›Ç≈ÇÈÅEÅEÅE
@@ -142,7 +144,7 @@ C ]0
 
 F *1
 F @0 V15 L16 Q1 SO @e30 H0,20,0,-20
-F r1 r1 r1
+F r1&r1&r1
 F *F0 eeee *F1 Q8 dddd
 F [
 F Q1 *F0
@@ -152,8 +154,9 @@ F   [errr eerr errr eerr]3 errr eerr errr rrrr
 F ]3
 F ]0
 
-G @14 V13 L16 O1
+G @14 V0  L16 O1
 G r1 r1 r1
+G @14 V13 L16 O1
 G eeee eeee
 G [
 G [
