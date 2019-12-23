@@ -1,0 +1,65 @@
+;[gain=1.0 name=YS3G_28 duration=300s fade=5s]
+#opll_mode 0
+#tempo 180
+#title { "断末魔"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc 0=1000
+;#alloc { 3=100
+;        ,5=256
+;       }
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, fe}
+
+@e10 = {2, 30, [n30,f,n20,f,n10,f,n0,f,n10,f,n20,f]  }
+@e11 = {2, 30, [n30,ff,n0,ff]  }
+
+;* 断末魔
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {45, 0,15, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0
+             ,15, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
+
+9 @15 V13 L32 O4
+9 rrrr rrrr eff+gg+[aa+]20 g+agg+f+gff+fefc+cc+<b>c+<b>c+<a+babg+gf+fec+c<ba+ag+g
+
+A @15 V15 L32 O4
+A cc+dd+eff+     [gf+]20 gff+efd+edd+c+dcc+<ba+babg+bgaf+afed+dc+c<ba+ag+gf+fe
+
+B @15 V13 L32 O4
+B rrrr dd+eff+g [g+g+]20 gg+f+gff+efd+edd+c<b>c<a+>c<a>c<g+a+g+a+gf+fed+dc<ba+ag+gf+
+
+1 @e1 V13 L32 O3 H0,10,0,-60
+1 [g16.]20 [g16.V-]10
+
+2 @e1 V13 L32 O2 H0,10,0,-60
+2 [g16.]20 [g16.V-]10
+
+3 @e10 V12 L1 O4
+3 c1 @e11 [c8V-]8
