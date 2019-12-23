@@ -1,0 +1,272 @@
+;[gain=1.0 name=YS3G_08 duration=300s fade=5s]
+#opll_mode 0
+#tempo 112
+#title { "Be careful"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc 0=1000
+;#alloc { 3=100
+;        ,5=256
+;       }
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, fedcd }
+@e2  = {1, 0, def8=120 }
+@e3  = {1, 0, fe8=60 }
+@e4  = {1, 0, def }
+@e5  = {1, 0, fedddcccbbbaaa }
+
+@e10 = {2, 0, eca86420 }
+@e11 = {2,10, f,n8,e,n6,d,n4,dc,n2,cb,n0,b0=60 }
+@e12 = {2, 5, fedcba9876543210 }
+
+@e21 = {0, 0, fedccbbaa }
+@e22 = {0, 0, fedcba9876543210 }
+
+@e30 = {0, 0, ffffffffff0 }
+
+;* ロングバス
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {20, 4,15, 2, 2, 0, 1, 1, 0, 0, 0, 0, 0
+             ,15, 1, 2, 0, 0, 4, 0, 0, 0, 0, 0}
+
+;* D.ギター
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+;@v16 = { 2, 2,15, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0
+;             ,15, 0, 0, 0, 0, 7, 0, 1, 0, 0, 1}
+
+;* D.ギター2
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v16 = { 2, 5,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+             ,15, 0, 0, 0, 0, 5, 0, 1, 0, 0, 1}
+
+;* ベル
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v17 = {25, 7,15, 3, 3, 0, 0, 6, 0, 0, 0, 0, 1
+             ,15, 3, 3, 4, 0, 2, 0, 0, 0, 0, 0}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
+
+1 r8
+1 @e2 V11 L16 O4
+1 [e4g4f+4d4e2g2e4g4f+4d4e2d+2]
+1 a2g2a2g2a2g2a2
+1 @e1 V12 L16 O4
+1 gr8g&g4>
+1 [
+1 @e1 V12 L16 O5
+1 c2<ab>cdedc<b2&bgdgab>cdc8d<b>c8ea8fgef8a>d8<b>c<ab8g+bg+e8.>e8.g+8<
+1 c2<ab>cdedc<b2&bgdgab>cdc8d<b>c8de8fgag+8eg+b>c<baedc<b>c<ab>ceab>ce<<
+1 @e3 V13 L16 O4
+1 e8.f4&fe8.d8.c8e4&e8<a8>c2e8.f4&fe8.d8.c8e4&e8b8a2
+1 V-2
+1 >>d8.e8.c8d2c8.d8.<b8>c2<b4a4f+4d+4e2&e<
+1 @e1 V10 L16 O4
+1 b>g+ebg+>d<b<
+1 @e5 V10 L16 O4
+1 [a>aeg<]16
+1 @e1 V9 O3
+1 g4b4 V+>d4g4 V+b4>d4 V+g4b4
+1 ]0
+
+2 r8
+2 @e2 V10 L16 O4
+2 [c4e4d+4<b4>c2d+2c4e4d+4<b4>c2 | a+2] g2
+2 c2d2c2d2c2d2c2
+2 @e1 V11 L16 O4
+2 dr8d&d4>
+2 [
+2 @e1 V11 L16 O5
+2 e2cdefgfed2&d<bgb>cdeg<a8bga8>ce8decd8fa8g+af+g+8eg+e<b8.>b8.>e8<
+2 e2cdefgfed2&d<bgb>cdeg<a8bga8b>c8defd8<b>eg+edc<afedecdea>cdea
+2 @e3 V11 L16 O5
+2 c8.c4&cc8.<b8.a8>   c4&c8<e8a2> c8.c4&cc8.<b8.a8>c4&c8e8e2
+2 @e4 V10 L16 O3
+2 a2>f8.g8.f8a2c8.d8.e8f2f+2g+2r>
+2 @e1 V10 L16 O5
+2 ebg+>d<b>fe<<
+2 @e5 V10 L16 O4
+2 [c8rc8rc8 a8ra8ra8 ec8c8 e8e8 c8c8c8c]
+2 @e1 V8
+2 <d4g4 V+b4>d4 V+g4b4 V+>d4g4
+2 ]0
+
+C r8
+C @4 @e2 V11 L16 O5 \1
+C r8
+C e4g4f+4d4e2g2e4g4f+4d4e2d+2
+C e4g4f+4d4e2g2e4g4f+4d4e2d+2
+C a2g2a2g2a2g2a4&a8
+C @4 @e1 V11 L16 O5 \1
+C gr8g&g4>
+C [
+C @4 @e1 V11 L16 O6 \1
+C c2<ab>cdedc<b2&bgdgab>cdc8d<b>c8ea8fgef8a>d8<b>c<ab8g+bg+e8.>e8.g+8<
+C c2<ab>cdedc<b2&bgdgab>cdc8d<b>c8de8fgag+8eg+b>c<baedc<b>c<ab>ceab>ce<<
+C @4 @e3 V12 L16 O5 \1
+C r8
+C e8&ef4&fe8&ed8&dc8e4&e8<a8>c2e8&ef4&fe8&ed8&dc8e4&e8b8a4&a8
+C r8
+C @4 @e4 V11 L16 O4 \1
+C a2>f8&fg8&gf8a2c8&cd8&de8f4&f8d+2e2r8>ebg+>d<b>f<<
+C @4 @e5 V7 L16 O5 \1
+C [a>aeg<]16
+C @4 @e1 V10 L16 O4
+C g4b4 V+>d4g4 V+b4>d4 V+g4b4
+C ]0
+
+9A r8
+9  @15 V11 L16 O3 HF
+A  @15 V9  L16 O3 HF \1
+9A r8a8>e4d+4<b4 r8a8>e4d+2 r8<a8>e4d+4<b4 r8a8>e4<a+2
+9A r8a8>e4d+4<b4 r8a8>e4d+2 r8<a8>e4d+4<b4 r8a8>e4g4
+9  @16 V14 L16 O5
+A  @16 V12 L16 O6 \1
+9A e8&e_c8<
+9A [a<a>aa< a>aag+ g<g>gg< g>ggg]3 a<a>aa< a>aag+ gr8g8&g_e8.
+9A [
+9  @16 V14 L16 O4
+A  @16 V12 L16 O5 \1
+9A ab>cdedc<ba<aa>a<aa>ag &gdgab>cd<bg<gg>g<gg>gf& fgef4&fabg+a8&ab>c defe8<b>d<bg+8.>g+8.e8<
+9A ab>cdedc<ba<aa>a<aa>ag &gdgab>cd<bg<gg>g<gg>gf& fgef8ga8>defe8<b>dc< a<aa>a< aa>a<a> a<aa>a< aa>a<a
+
+9  @17 V10 L16 O6
+A  @17 V6  L16 O7 \0
+9A [a>a<b>b c>c<<aa> a<ab>b c>c<<a>a<]4
+9  @17 V12 L16 O5
+A  @17 V9  L16 O6 \0
+9A f8.g8.e8f2 e8.f8.d+8e2 d4c4<b4a4 g+4.>e8g+4
+
+9  @16 V14 L16 O5
+A  @16 V12 L16 O6 \1
+9A e8e_<b8
+9A [a<aa>a< aa>a<a>> d<dd>e< ee>d<d> c<ara r>cdc &c<ara rara]2
+9A g<gg>g< gg>g<g> g<gg>g< gg>g<g g>g<gg> g<g>g<g> g<gg>g< gg>g<g
+9A ]0
+
+DE r8
+D @15 V13 L16 O2 H10,1,1,2
+E @15 V11 L16 O2 H10,1,1,2 \1
+DE r8a8>e4d+4<b4 r8a8>e4d+2 r8<a8>e4d+4<b4 r8a8>e4<a+2
+DE r8a8>e4d+4<b4 r8a8>e4d+2 r8<a8>e4d+4<b4 r8a8>e4g4r4
+D  @13 V13 L16 O2
+E  @10 V13 L16 O2 @e21 \1 H0,1,0,4
+DE [ar>a<ar>a<ag+gr>g<grgeg]3 ar>a<ar>a<ag+gr8gdeg
+DE [
+D  @13 V13 L16 O2
+E  @10 V13 L16 O2 @e21 \1 H0,1,0,4
+DE aa>a<a a>aeg< aa>a<a >a<aeg  &gg>g<g g>gdf< gg>g<g >g<gdf  &ff>f<f &ff>fe dd>d<d &d<ab>c   eeee e>e<ee >e<ee>e <e<eg+b
+DE aa>a<a a>aeg< aa>a<a >a<aeg  &gg>g<g g>gdf< gg>g<g >g<gdf  &ff>f<f &ff>fe dd>d<d ee<bg+    aaaa aa>a<a >a<aa>a <aa>a<a
+DE ff>f<f &ff>f<f &ff>f<f ffgg  aa>a<a &aa>a<a &aa>a<a aagg   ff>f<f &ff>f<f &ff>f<f ffgg     aa>a<a &aa>a<a& aa>a<a aa>ce
+DE dddd dddd d>d<dd >d<d>d<d<   aaaa aaaa a>a<aa >a<a>ce      dddd d>d<dd d+d+d+d+ d+>d+<d+d+ eeee eeee e>e<ee >e<ee>e<
+DE [a<aa>a <aa>a<a >d>dr<e> er<d>d <c<aa>a <aa>a<a >c<a>a<a >a<a>a<a>]
+DE g<gg>g< gg>g<g> g<gg>g <gg>g<g g>g<gg >g<g>g<g >g<gg>g <gg>g<g
+DE ]0
+
+;*F0 = {V14 O3 H0,20,0,-10}
+;*F1 = {V14 O4 H0,20,0,-15}
+
+*F0 = {O3 V14}
+*F1 = {O4 V14}
+
+F *1
+F r8
+F @0 V14 O4 L16 Q1 SO @e30 H0,20,0,-20
+F *F0 [grrr]4              [grrr]3 gggg *F1 arV-aV-a *F0 [grrr]3 [grrr]3 gggg
+F *F1 arV-aV-a *F0 [grrr]3 [grrr]3 gggg *F1 arV-aV-a *F0 [grrr]3 [grrr]3 *F1 a32a32aaa
+F [
+F *F0 gr *F1 a *F0 g r g *F1 a *F0 g g r *F1 a *F0 g r  *F1 >c32c32<a32a32e32e32
+F *F0 gr *F1 a *F0 g r g *F1 a *F0 g g r *F1 a *F0 g rr *F1 aa
+F ]
+F [
+F [
+F   [*F0 gr *F1 a *F0 g rg *F1 a *F0 g]
+F   [
+F     [*F0 rg *F1 a *F0 g] *F0 gr *F1 a *F0 g rg *F1 a *F0 g
+F   ]
+F   *F0 gr *F1 a *F0 g rg *F1 a *F0 g gr *F1 a *F0 g | r *F1 a *F0 g *F1 a
+F ]
+F *F1 >c32c32<a32a32e32e32<c32c32
+F [
+F   *F0 gr *F1 a *F0 g rg *F1 a *F0 g rg *F1 a *F0 g gr | *F1 ar
+F ]4
+F *F1 aa
+F *F0 gr *F1 ar *F0 gg *F1 ar *F0 gg *F1 a *F0 g gr *F1 ar
+F *F0 gr *F1 ar *F0 gg *F1 ar *F0 gg *F1 a *F0 g *F1 a *F0 g *F1 a *F0 g
+F [*F0 gr *F1 ar *F0 gg *F1 a *F0 g]3 *F0 g *F1 a *F0 gg *F1 a32a32aaa
+F [*F0 gr *F1 ar *F0 gg *F1 a *F0 g]8
+F *F0 g *F1 a *F0 gg *F1 a *F0 g r8 g *F1 a *F0 gg *F1 a *F0 g *F1 a r
+F *F0 g *F1 a *F0 gg *F1 a *F0 g r8 *F1 a *F0 gg *F1 a *F0 gg *F1 a32a32a32a32
+F ]0
+
+B  @10 V14 O1 L16 H0,10,0,-10 @e21
+G  @0  V14 O1 L16 H0,10,0,-10
+BG a32a16.
+BG r2..a32a. r1 r2..a32a. r1
+BG r2..a32a. r1 r2..a32a. r1
+BG [
+BG r4 r4 r4 r4
+BG r4 r4 r4 rarr
+BG ]
+BG [
+BG [r1]20
+BG r4. aa r4.. a
+BG r4. aa r4 r4
+BG ]0
+
+*30 = {@e11 V13}
+*31 = {@e12 V11}
+
+3 @e11 O3 V12 L16
+3 *30 c32c16.
+3 *31 [crrr]3         cr *30 c32c. *31 [crrr]3 cccc crV-cV-cV+2 [crrr]2 cr *30 c32c. *31 [crrr]3 cccc
+3 crV-cV-cV+2 [crrr]2 cr *30 c32c. *31 [crrr]3 cccc crV-cV-cV+2 [crrr]2 cr *30 c32c. *31 [crrr]3 c32c32ccc
+3 *31
+3 [
+3   crcc rccc crcc rc32c32c32c32c32c32
+3   crcc rccc crcc r *30 c *31 cc
+3 ]
+3 [
+3 [
+3   [crcc rccc]
+3   [
+3     [rccc] crcc rccc
+3   ]
+3   crcc rccc crcc | rccc
+3 ]
+3 c32c32c32c32c32c32c32c32
+3 [
+3   crcc rccc rccc cr | cr
+3 ]4
+3 cc
+3 crcr cccr cccc crcr
+3 crcr cccr cccc cccc
+3 [crcr cccc]3 cccc c32c32ccc
+3 [crcr cccc]8
+3 cccc cc *30 cc *31 cccc ccc *30 c *31
+3 cccc cc *30 cc *31 cccc ccc32c32c32c32
+3 ]0
