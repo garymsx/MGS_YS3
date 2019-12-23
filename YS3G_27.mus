@@ -1,0 +1,63 @@
+;[gain=1.0 name=YS3G_27 duration=300s fade=5s]
+#opll_mode 0
+#tempo 140
+#title { "Lucky"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc 0=1000
+;#alloc { 3=100
+;        ,5=256
+;       }
+
+#alloc {b=2000}
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+
+@e0  = {1, 0, f }
+@e3  = {1, 0, def8=150 }
+
+;* ブラス
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {20, 7,15, 6, 3, 0, 0, 1, 0, 0, 0, 0, 0
+             ,10, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0}
+
+1239ABCDE V0 L16
+
+1 V11 @e3 O4
+2 V8 @e3 O4 r16 \1
+12 c+8<g+8>c+8d+8f8c+8f8g+8>c8&c32<g8.f8.d4
+12 H10,1,2,1 e2&e8.&e32
+
+3 V10 @e3
+3 O4f2g+2g1&g4.&[V-g32&]4
+
+9  V14 @15 H10,1,2,2 O3
+A  V11 @15 H10,1,2,2 O3 \1 r16
+9A c+1c1&c4&c8.&[V-c32&]4
+
+B V12 @15 H10,1,2,2 O4
+C V9  @15 H10,1,2,2 O4 \1 r16
+BC c+2f2e1&e4&e8.&[V-e32&]4
+
+D V12 @15 H10,1,2,2 O4
+E V9  @15 H10,1,2,2 O4 \1 r16
+DE g+2>c+2c1&c4&c8.&[V-c32&]4

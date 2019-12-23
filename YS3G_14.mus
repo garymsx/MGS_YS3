@@ -1,0 +1,62 @@
+;[gain=1.0 name=YS3G_14 duration=300s fade=5s]
+#opll_mode 0
+#tempo 112
+#title { "いっときの夢"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc 0=1000
+;#alloc { 3=100
+;        ,5=256
+;       }
+
+#alloc {b=2000}
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, fedd0=150 }
+
+;* ビブラフォン2
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {30, 2,15, 3, 8, 0, 0, 7, 1, 0, 0, 0, 1
+             ,15, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0}
+
+1239ABCDE V0 L16
+
+A r8
+9 @15 V12 L4 O3
+A @15 V9  L4 O3 \1
+9A c>>ee<<  f>>ee<< g>>dd<<  c>>ee<<<
+9A a>>>ee<< f>>ee   dc<b<c>> c2.
+
+B @15 V12 L4 O4
+B rbb raa rbb   r>c<b
+B raa raa bage> e2.
+
+1 @e1 V11 L4 O5
+2 @e1 V9  L4 O5 \1
+12 e2g8f8 edc< b>cd e.r8e
+12 &e<b>c <a>dc b.r8g> c2.
+
+3 @e1 V11 L4 O5
+3 g2b8a8gfedefg.r8g
+3 cde cae g.r8d e2.
