@@ -1,0 +1,153 @@
+;[gain=1.0 name=YS3G_13 duration=300s fade=5s]
+#opll_mode 0
+#tempo 150
+#title { "死神の電撃"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc 0=1000
+;#alloc { 3=100
+;        ,5=256
+;       }
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, 8f=60}
+@e2  = {1, 0, fe0=120}
+@e3  = {1, 0, fedcd}
+
+@e10 = {2, 5, dccbbaa9876543210 }
+@e11 = {2, 5, feeddccba9876543210 }
+@e13 = {2, 5, dcba9876543210 }
+@e15 = {2, 0, 8f=60 }
+
+@e21 = {0, 0, fedccbbaa }
+@e22 = {0, 0, fedcba9876543210 }
+@e23 = {0, 0, 8f=80 }
+
+@e30 = {0, 0, ffffffffff0 }
+
+;* D.ギター
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+;@v15 = { 2, 2,15, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0
+;             ,15, 0, 0, 0, 0, 7, 0, 1, 0, 0, 1}
+
+;* D.ギター2
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+;@v15 = { 2, 5,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+;             ,15, 0, 0, 0, 0, 5, 0, 1, 0, 0, 1}
+
+;* D.ギター4
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = { 2, 5,15, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1
+             ,15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
+
+1239ABCDEFG V0 L4 HF HO
+
+9  @15 V10 L16 O5 H10,1,1,3
+A  @15 V8  L16 O6 H10,1,1,3 \1
+B  @15 V8  L16 O6 H10,1,1,3 \-1
+9AB [g+gV+]4 [g+g]4
+B  r16
+9AB [
+9  @15 V14 L16 O5 H10,1,1,3
+A  @15 V12 L16 O6 H10,1,1,3 \1
+B  @15 V12 L16 O5 H10,1,1,3 \-1
+9AB [d+8g+d+ d+bd+d+ d+8bd+ d+>d+<d+d+ d+8a+d+ d+>c+<d+d+ d+8ad+ d+bd+d+]4
+9  @15 V14 L16 O6 H10,1,1,3
+A  @15 V12 L16 O7 H10,1,1,3 \1
+B  @15 V12 L16 O6 H10,1,1,3 \1
+9AB d+8<g+2.. &g+4.g8g+8.a+8.b8 d+1 &d+1>
+9AB d+8<g+2.. &g+4.g8g+8.a+8.b8 g+1 &g+1
+9AB ]0
+
+D @6 V11 L16
+E @6 V11 L16 \2
+DE O2 [g+&V+]4 g+2.
+DE [
+D @13 V13 L16 O2
+E @10 V13 L16 O2 @e22 \1 H0,1,0,5
+DE [
+DE g+g+>g+<g+ g+g+>g+<g+ bbb>b< bb>b<b a+a+>a+<a+ a+a+a+>a+< aaa>a< a>aa<a
+DE g+g+>g+<g+ g+g+>g+<g+ bbb>b< bb>b<b a+a+>a+<a+ a+a+a+>a+< aaa>a  aa+bg<
+DE ]4
+DE ]0
+
+1 @e1 V7 L16 O6 HF
+1 g+1
+1 [
+1 @e2 V11 L16 O5 H5,1,3,1
+1 a+1& a+4.g+8a+8.b8.>c+8< ba+b2..> d+8c+<b>c+8<ba+b8a+g+g>c+<ba+
+1 a+1& a+4.g+8a+8.b8.>c+8< ba+g+2.. &g+1
+1 @e3 V9 L16 O4 HF
+1 [g+4..b&b2 a+4..a4&agg+gg+]4
+1 ]0
+
+2 @e1 V7 L16 O6 HF \1
+2 g1
+2 [
+2 @e2 V11 L16 O5 H5,1,3,1 \1
+2 a+1& a+4.g+8a+8.b8.>c+8< ba+b2..> d+8c+<b>c+8<ba+b8a+g+g>c+<ba+
+2 a+1& a+4.g+8a+8.b8.>c+8< ba+g+2.. &g+1
+2 @e3 V9 L16 O4 HF
+2 [d+4.. g+&g+2 g4..f+4&f+gg+gg+]4
+2 ]0
+
+;*F0 = {O3 V14}
+;*F1 = {O4 V14}
+
+F *1
+F r1
+F [
+F @0 V15 O3 L16 Q1 SO @e30 H0,20,0,-20
+F [
+F [grgr r4 ggrr rrrg]3 grgr r4 ggrr rrrr
+F ]4
+F ]0
+
+C  @10 V14 O1 L16 H0,10,0,-10 @e21
+G  @0  V14 O1 L16 H0,10,0,-10
+CG r2.a8aa
+CG [
+CG [
+CG [rrrr arrr r4 arrr]3 r4 arrr rrrr araa
+CG [rrrr arrr r4 arrr]3 r4 arrr
+C  rrrr aaaa
+G  HF V-3 >d+<a+f+d+ V+3 HO aaaa
+CG ]2
+CG ]0
+
+3 @e15 V11 L16 O3
+3 c2. V12 @e11 c8cc
+3 [
+3 [
+3 @e11 V12 L16 O3
+3 [@e13cccc @e11c@e13ccc cccc @e11c@e13ccc]3 @e13cccc @e11c@e13ccc @e13cccc @e11c8cc
+3 [@e13cccc @e11c@e13ccc cccc @e11c@e13ccc]3 @e13cccc @e11c@e13ccc @e13cccc @e11cccc
+3 ]2
+3 ]0
+
