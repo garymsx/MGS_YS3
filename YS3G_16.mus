@@ -1,0 +1,72 @@
+;[gain=1.0 name=YS3G_16 duration=300s fade=5s]
+#opll_mode 0
+#tempo 112
+#title { "哀愁のトワイライト"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc 0=1000
+;#alloc { 3=100
+;        ,5=256
+;       }
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, fe0=120 }
+@e2  = {1, 0, ef }
+
+@e30 = {0, 0, ffffffffff0 }
+
+;* アコースティックギター
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {35, 6,15, 4, 3, 2, 0, 3, 0, 0, 0, 1, 1
+             ,10, 3, 3, 1, 0, 1, 0, 0, 0, 1, 0}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
+
+A  r16
+9A [
+9  @15 V13 L8 O2
+A  @15 V12 L8 O2 \1
+9A [a>a>a2a4<< g>g>g2.<< g>g>g2g4<< a>a>a2.<<]4
+9A ]0
+
+B [
+B @15 V13 L8 O2 \-1
+B [a>a>>c2d4<<< g>g>b2.<< g>g>b2>d4<<< a>a>>c2.<<<]4
+B ]0
+
+2   r8r16
+3   r2r16
+123 [
+1   @e1 V10 L16 O5 HF \0
+2   @e1 V8  L16 O5 HF \1
+3   @e1 V8  L16 O5 HF \0
+123 [a>cea2.r r1 <gb>dg2.r r1<]
+1   @e2 V9  L16 O5 H10,1,1,1 \0
+2   @e2 V7  L16 O5 H10,1,1,1 \1
+3   @e2 V7  L16 O5 H10,1,1,1 \0
+123 [a2.ab>c<b g1 g2.e4 | a8.ba2.] a1
+123 ]0

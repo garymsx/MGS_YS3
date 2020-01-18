@@ -1,0 +1,135 @@
+;[gain=1.0 name=YS3G_20 duration=300s fade=5s]
+#opll_mode 0
+#tempo 150
+#title { "時の封印"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+#alloc { 9=1000,a=1000,b=1000,c=1000,d=2000,e=1000,1=1000,2=1000,3=1000}
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, deff=20,f8=60 }
+@e2  = {1, 0, def }
+@e3  = {1, 0, fedc }
+
+@e11 = {2, 3, fdcba9876543210 }
+
+@e20 = {0, 0, fedcba}
+@e21 = {0, 0, fe}
+
+@e30 = {0, 0, ffffffffff0 }
+
+;* バスドラム(ノイズ入り)
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = { 0, 7,15,10,11, 0, 0, 3, 0, 0, 0, 0, 0
+             ,15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
+
+;* スラップノイズ(O4)、ハンドクラップ(O3)
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v16 = { 0, 7,15, 4,10, 0, 0, 0, 0, 0, 0, 0, 0
+             ,15, 7,15, 0, 0,10, 0, 0, 0, 0, 0}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
+
+1239ABCDE L16 V0 O4
+
+B r8
+9AB [
+9    @6 V13 L16 O4 H10,1,1,2 \0  @e21
+A    @6 V13 L16 O5 H10,1,1,2 \0  @e21
+B    @6 V11 L16 O4 H10,1,1,2 \1  @e21
+9AB d4e4f4>c8<a+8& a+2.g8a8&      a2&a8>c8f8e8& e2.r4
+9AB d2&d8c8<g8a+8& a+1            a2.g8f8&      f4e8f8r8c8r4
+9AB d4>d8r2ef      g4.fed2        f4.efg4.fg    a1&
+9AB a8a8d2.&       d4.a+8a8g8f8g8 f4.e4c+4<a8>  d2.defg
+9AB f4.e4.d4       g4.f4.g8a8&    a1&           a2.defg
+9AB f4.e4.d4       g4.f4.g4       fed2..&       d2.defg
+9AB f4.e4.d4       g4.f4.g8a8&    a1&           a2.defg
+9AB f4.e4.d4       g4.f4.g4       fed2&d8>c8d8& d2.r4
+9AB ]0
+
+DE [
+D @13 V13 L16 O3
+E @10 V13 L16 @e20 O3 H0,1,0,5 \1
+DE [d8dd]4 [g8gg]4 [f8ff]4       [e8ee] c8>c8<c+8>c+8<
+DE [d8dd]4 [g8gg]4 [f8ff]4       [c8c>c<]3 c+c+c+>c+<
+DE [d8dd]4 [g8gg]4 [f8ff] [g8gg] [a8aa] c8>c8<c+8>c+8<
+DE [d8dd]4 [g8gg]4 [a8aa]4 [d8dd]4 <
+DE [a+8a+>a+<]4> [c8c>c<]4 d8d8c8d8r8c8r8d8 r8c8r8d4d8c4<
+DE [a+8a+>a+<]4> [c8c>c<]4 d8d8c8d8r8c8r8d8 r8c8r8d8c4d4<
+DE [a+8a+>a+<]4> [c8c>c<]4 d8d8c8d8r8c8r8d8 r8c8r8d4d8c4<
+DE [a+8a+>a+<]4> [c8c>c<]4 d8d8c8d8r8c8r8d8 r8c8r8d8c4d4
+DE ]0
+
+1 [
+1 @e1 V8 L16 O5 \1
+1 d4e4f4>c8<a+8& a+2.g8a8&      a2&a8>c8f8e8& e2.r4
+1 d2&d8c8<g8a+8& a+1            a2.g8f8&      f4e8f8r8c8r4
+1 d4>d8r2ef      g4.fed2        f4.efg4.fg    a2 <a8g8e8c+8>
+1 a8a8d2.&       d4.a+8a8g8f8g8 f4.e4c+4<a8>  d2.defg
+1 f4.e4.d4       g4.f4.g8a8&    a1&           a2.defg
+1 f4.e4.d4       g4.f4.g4       fed2..&       d2.defg
+1 f4.e4.d4       g4.f4.g8a8&    a1&           a2.defg
+1 f4.e4.d4       g4.f4.g4       fed2&d8>c8d8& d2.r4
+1 ]0
+
+2 [
+2 @e2 V9 L16 O3 H10,1,1,2
+2 d1 a4.g2&g8& g4.f2&f8 e4.c4.c+4
+2 d1 a4.g2&g8& g4.f2&f8 c2.c+4
+2 d1 g1        f2e2     a8>e8c+8<a+8a8g8e8c+8
+2 d1 g1        a1       d1 >
+2 @e3
+2 [a+>dga+<]4 > [ceg>c<]4 [dfa>d<]8 <
+2 [a+>dga+<]4 > [ceg>c<]4 [dfa>d<]6 > dc+<a+agfec+<
+2 [a+>dga+<]4 > [ceg>c<]4 [dfa>d<]8 <
+2 [a+>dga+<]4 > [ceg>c<]4 [dfa>d<]6 > dc+<a+agfec+
+2 ]0
+
+*F0 = {@15 V15 O2 H0,15,0,-20}
+*F1 = {@16 V15 O4 H0,15,0,-20}
+
+;*F0 = {@15 V15 O3 H0,15,0,-20}
+;*F1 = {@15 V15 O3 H0,15,0,-20}
+
+;F *1
+F [
+F V15 O2 L16
+F [*F0 errr *F1 errr]15 *F0 errr *F1 eree
+F [*F0 errr *F1 errr]15 *F0 > e24e24 c24c24 < a24a24 e16e16e16e16
+F [
+F [*F0 eerr *F1 err *F0 e *F0 erer *F1 errr] [*F0 erer *F1 er *F0 er *F0]3 *F0 erer *F1 eree
+F [*F0 eerr *F1 err *F0 e *F0 erer *F1 errr] [*F0 erer *F1 er *F0 er *F0]3 *F0 erer *F1 eeee
+F ]
+F ]0
+
+3 [
+3 @11 V11 O3 L16
+3 [
+3 [c8cc]7 | cccc
+3 ]8 cV+2cV-2cc
+3 [[cccc]4]16
+3 ]0

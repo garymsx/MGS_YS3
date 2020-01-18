@@ -46,7 +46,7 @@
 @e21 = {0, 0, fedccbbaa }
 @e22 = {0, 0, fedcba9876543210 }
 
-@e30 = {0, 0, ffffffffff0 }
+@e30 = {0, 0, feeddccbba0 }
 
 ;* ロングバス
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
@@ -62,6 +62,11 @@
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v16 = { 2, 5,15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
              ,15, 0, 0, 0, 0, 5, 0, 1, 0, 0, 1}
+
+;* D.ギター3
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+;@v16 = { 0, 5,15, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0
+;             ,15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1}
 
 ;* ベル
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT

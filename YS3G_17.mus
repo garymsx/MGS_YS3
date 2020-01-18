@@ -1,0 +1,211 @@
+;[gain=1.0 name=YS3G_17 duration=300s fade=5s]
+#opll_mode 0
+#tempo 112
+#title { "バレスタイン城"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+#alloc { 9=1000,a=1000,b=1000,c=1000,d=2000,e=1000,1=1000,2=1000,3=1000}
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, fedcd }
+@e2  = {1, 0, feeddccaa }
+
+@e11 = {2, 3, ecbbaa9876543210 }
+@e12 = {2,15, fdccbba9876543210 }
+@e13 = {2, 8, fdccbbaa9876543210 }
+@e14 = {2,15, fd0=80 }
+
+@e20 = {0, 0, fedcba}
+
+@e30 = {0, 0, ffffffffff0 }
+
+;* D.ギター5
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+;@v15 = { 3, 5,15, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1
+;             ,15, 0, 0, 0, 0, 2, 0, 1, 0, 0, 1}
+
+;* D.ギター6
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = { 5, 2,15, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1
+             ,15, 0, 0, 0, 0, 2, 0, 1, 0, 0, 1}
+
+;* オルガン
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v16 = {35, 7,15, 1, 1, 0, 1, 6, 0, 0, 0, 0, 0
+             ,10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
+
+9  @15 V14 L16 O4 H10,1,1,3 \0
+A  @15 V11 L16 O5 H10,1,1,3 \0
+9A ede<a4&g+_f+16>ede<a8b>cd e4d4c4<b4
+9A [
+9  @15 V14 L16 O3 H10,1,1,3 \0
+A  @15 V11 L16 O4 H10,1,1,3 \0
+9A a4ab>ce8.decd<b>c< g4gb>dg8efdecd<b a4ab>ce8.decd<b>c d8ef8gfge4eefg
+9A a4ab>cd<b4g8b8> d8c8<b8>c8<a4.g8 f4&fdefa4&afga g+4.ab>e4.
+9  @16 V13 L16 O5 HF \0
+A  @16 V11 L16 O6 HF \0
+9A cd
+9A e4&edcd<a8a8b8>cd e4&edcd<a8a8b8>cd e4&edcd<a8a8b8g8> d4..c32<b32>c4&c<b>cd
+9A e4&edcd<a8a8b8>cd e4&edcd<a8a8b8>cd e4&edcd<a8a8b8g8  a4.&a_>a8&a2
+9  @15 V14 L16 O4 H10,1,1,3 \0
+A  @15 V11 L16 O5 H10,1,1,3 \1
+9A ab>ce8dc<baebe>c<eae> d<e>c<ebe>c<ebed+ebe>d<b aebe>c<eaebegeae>c<f  bed+e>c<ed+e>d<ed+ebed+e
+9A ab>ce8dc<baebe>c<eae> d<e>c<ebe>c<ebed+ebe>d<b aebe>c<eaebegeae>c<f  bed+e>c<ed+e>d<ed+ebed+e>
+9A c4&c<b>cde2 d4c4<b4>f4 e4&e<b>dc<b4&bgba e4&e<b>dc<b8>e8a8b8>
+9A c4&c<b>cde2 d4&dc<b>cd4<b4
+9A aaaararararag+rg+r aaaa rara rara brbr
+9A aaaararararag+rg+r aaaa rara ar8g+4&g+
+9A ]0
+
+B  @15 V12 L16 O5 H10,1,1,3 \1
+C  @15 V10 L16 O6 H10,1,1,3 \1
+BC c<a>c<e4&d+_c+16>c<a>c<e8eab b4b4g4d4
+BC [
+B  @15 V10 L16 O3 H10,1,1,3 \1
+C  @15 V8  L16 O4 H10,1,1,3 \1
+BC r a4ab>ce8.decd<b>c< g4gb>dg8efdecd<b a4ab>ce8.decd<b>c d8ef8gfge4 V+3 ga>b
+BC c4cdefd4<b8>d8  g+8f8e8g+8c4.<b8 a4&afga>c4&c<ab>c< b4.eg+b4.
+B  @16 V10 L16 O5 HF \1
+C  @16 V8  L16 O6 HF \1
+BC r cd
+BC e4&edcd<a8a8b8>cd e4&edcd<a8a8b8>cd e4&edcd<a8a8b8g8> d4..c32<b32>c4&c<b>cd
+BC e4&edcd<a8a8b8>cd e4&edcd<a8a8b8>cd e4&edcd<a8a8b8g8  a4.&a_>a8&a4..
+B  @15 V10 L16 O4 HO H10,1,1,3 \1
+C  @15 V8  L16 O5 HO H10,1,1,3 \1
+BC r ab>ce8dc<baebe>c<eae> d<e>c<ebe>c<ebed+ebe>d<b aebe>c<eaebegeae>c<f bed+e>c<ed+e>d<ed+ebed+>
+BC V+3 cdea8aedcrdrercr<     brgrdrerdr8.grgr         frgrarfrgrcrfrfr     g+r8.ar8.br8.g+r8. > V-3
+BC r c4&c<b>cde2 d4c4<b4>f4   e4&e<b>dc<b4&bgba e4&e<b>dc<b8>e8a8b
+BC V+3 a4&afab>c2< b4&bgdgb4g4>
+BC ccccrcrcrcrc<brbr> cccc rcrc rcrc drdr
+BC ccccrcrcrcrc<brbr> cccc rcrc cr8<b4&b
+BC ]0
+
+D  @13 V13 L16 O2
+E  @10 V13 L16 O2 @e20 H0,1,1,5 \1
+DE aa>a<a> ec<ae  aa>ce   a<ara
+DE ee>e<e> e<bgd  e>e<ee> e<ed>d<
+DE [
+D  @13 V13 L16 O2
+E  @10 V13 L16 O2 @e20 H0,1,1,5 \1
+DE aa>a<a  aa>a<a aa>a<a  aa>a<a
+DE gg>g<g  gg>g<g gg>g<g  gg>g<g
+
+DE aa>a<a  aa>a<a aa>a<a  aa>a<a
+DE dd>d<d  dd>d<d ee>e<e  eede
+DE ffff    ffff   gggg    gggg
+DE eeee    eeee   aaaa    gggg
+
+DE dddd    d>d<dd d>d<dd  dddd
+DE ee>e<e  e>e<ee eeee    eeee
+DE ffff    ffff   ffff    ffgg
+DE aaaa    aaaa   aaaa    aagg
+
+DE ffff    ffff   ffff    g>g<gg
+DE aaaa    aaaa   aaaa    aaaa
+DE ffff    ffff   ffff    ffgg
+DE aaaa    aaaa   aaaa    aagg
+
+DE ffff    ffff   ffff    g>g<gg
+DE aaaa    aaaa   aaaa    aaaa
+DE aaaa    aaaa   aaaa    aaaa
+DE gggg    gggg   gggg    gggg
+
+DE ffff    ffff   ffff    ffff
+DE eeee    eeee   eeee    eeee
+DE aaaa    aaaa   aaaa    aaaa
+DE gggg    gggg   gggg    gggg
+
+DE ffff    ffff   ffff    ffff
+DE eeee    eeee   eeee    eeee
+DE ffff    ffff   ffff    ffff
+DE gggg    gggg   gggg    gggg
+
+DE aaaa    aaaa   aaaa    aaaa
+DE aaaa    aaaa   aaaa    aaaa
+DE ffff    ffff   ffff    ffff
+DE gggg    gggg   gggg    gggg
+
+DE aaag>   g<ggg  ff>f<e  e>e<e>e<
+DE aaag>   g<ggg  ff>f<e  e>e<e>e<
+DE aaag>   g<ggg  ff>f<e  e>e<e>e<
+DE aaag>   g<ggg  f>f8<e  e>e<e>e<
+DE ]0
+
+1 @e1 V11 L16 O4
+1 agae4&eagae8&ea8 b4g4g4d4
+1 [
+1 @e1 V11 L16 O5
+1 c1< b1> c1< a2g+2>
+1 fga>e4&e<gab>e8d8.< bg+>e<b>g+ebg+>c<ae>c<bgdb> d8<a8f8d8a8f8d8<a8 beg+b>e<g+b>eg+<b>eg+bg+ab<
+1 [[aece]11 bgdg [aece]3 <aea>c]
+1 c1< b1 a1 g+1>
+1 c1< b1 a1 g+1
+1 a2>c4&c<b>ce g4f4d4<b4 >c4&c<gbae4&eege c4c<gbae8a8>c8e8
+1 f4e4f4a4 g4<b4>d4g4 >
+1 @e2
+1 eeee8e8e8e8ee8e8 eeee8e8e8e8ee8e8
+1 eeee8e8e8e8ee8e8 eeee8e8ee8re4&e
+1 ]0
+
+2 @e1 V9 L16 O4 \1
+2 agae4&eagae8&ea8 b4g4g4d4
+2 [
+2 @e1 V11 L16 O4 \1
+2 e1 d1 e1 f2e2
+2 @e1 V9  L16 O5 \1
+2 r fga>e4&e<gab>e8d8.< bg+>e<b>g+ebg+>c<ae>c<bgdb> d8<a8f8d8a8f8d8<a8 beg+b>e<g+b>eg+<b>eg+bg+a<
+2 [[aece]11 bgdg [aece]3 <aea>c] <
+2 e1 d1 c1 e1
+2 e1 d1 c1 e1
+2 a2>c4&c<b>ce g4f4d4<b4 >c4&c<gbae4&eege c4c<gbae8a8>c8e8
+2 f4e4f4a4 g4<b4>d4g4 >
+2 @e2
+2 cccc8c8c8c8cc8c8 cccc8c8c8c8c<b8b8>
+2 cccc8c8c8c8cc8c8 cccc8c8cc8r<b4&b
+2 ]0
+
+3 @0 V12 L16 O5
+3 [@e11gg@e12b@e11g g@e12b@e11gg @e12b@e11gg@e12b @e11gg@e12b@e11g]2
+3 [
+3 [
+3   @0 V12 L16 O5
+3   [[@e11gg@e12b@e11g]3 | gg@e12bb]4 @13aaaa
+3 ]
+3 [
+3   [[@e11gg@e12b@e11g]3 | g@e13a@e12b@e11g]4 g32g32@e13aaa
+3 ]
+3 [@e11gg@e12b@e11g gg@e12bb @e11gg@e12b@e11g | gg@e12b@e11g]4 @e13aaaa
+3 [@e11gg@e12b@e11g gg@e12bb @e11gg@e12b@e11g | gg@e12b@e11g]4 g32g32@e13a@e11g32g32@e13a
+3 [@e11gg@e12b@e11g]8
+3 @e11gg@e12b@e11g @e12b@e11gg@e12b @e11gg@e12b@e11g gg@e12b@e11g
+3 [@e11gg@e12b@e11g]8
+3 @e11gg@e12b@e11g @e12b@e11gg@e12b @e11gg@e12b@e11g gg@e12b@e11g
+3 [@e11gg@e12b@e11g g@e12b@e11gg gg@e13a@e11g @e13a@e11g@e13a@e11g]3
+3 gg@e12b@e11g g@e12b@e11gg @e14b4 @e13aaaa
+3 ]0

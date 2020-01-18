@@ -1,0 +1,133 @@
+;[gain=1.0 name=YS3G_22 duration=300s fade=5s]
+#opll_mode 0
+#tempo 112
+#title { "運命の塔"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc 0=1000
+;#alloc { 3=100
+;        ,5=256
+;       }
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, fedcd }
+
+@e10 = {2, 5, fe0=120 }
+@e11 = {2,20, fe0=120 }
+
+@e21 = {0, 0, fedccbbaa }
+
+@e30 = {0, 0, ffffffffff0 }
+@e31 = {0, 0, feeedddcccb0=10 }
+
+;* ロングバス2
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {15, 4,15, 1, 1, 0, 2, 1, 0, 1, 0, 0, 0
+             ,15, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
+
+BC r8
+9 @15 V13 L16 O5 H10,1,1,2 \0
+A @15 V10 L16 O6 H10,1,1,2 \0
+B @15 V11 L16 O5 H10,1,1,2 \1
+C @15 V9  L16 O6 H10,1,1,2 \1
+9ABC r4d+2dd+dr c1 r4d+2dd+gr f1
+9ABC r4d+2dd+dr c1 r4d+2dd+gr a+2 g2&g d+2&d+8<
+9A   a+2..
+BC   a+2.
+
+9ABC [
+BC r8
+9  @6  V13 L16 O5 H10,1,1,2 \0
+A  @15 V11 L16 O5 H10,1,1,2 \0
+B  @6  V11 L16 O5 H10,1,1,2 \1
+C  @15 V9  L16 O5 H10,1,1,2 \1
+9A f2.g4         g+2>d+4..d32d+32 d2...c+32d32    c+2d+2
+9A f1&           f1<              g+2.a+4>        c2>c4..<a+32>c32<
+9A a+1           f2.g8.g+32a+32   g+gf2.&fg32g+32 gfd+2&d+8c4
+9A fgfd+f2&fgfd+ f32g32f2...
+
+BC f2.g4              g+2>d+2     d1                c+2d+2
+BC f2&f8<fr8f         f1          f2&f4g4           g+2>d+2
+BC d1                 d2...f32g32 fd+c+2.&c+d+32f32 d+<a+a+2&a+8g4
+BC g+a+g+gg+2&g+a+g+g g+1
+9ABC ]0
+
+D    @15 V13 L16 O3
+E    @15 V11 L16 O3 \1
+F    @15 V13 L16 O2
+G    @15 V11 L16 O2 \1
+DEFG [f1& f1]3 f1 d+1&d d+1&d+8&d+4.
+DEFG [
+DEFG f1& f1& f1& f1
+DEFG f2.fr8f f1 f1  &f2d+2
+DEFG d1&     d1 c+1 d+2.c4
+DEFG f2.f4   f1
+DEFG ]0
+
+1 @e1 V10 L16 O5
+1 r4d+2dd+d8 c4>dd+d8c2 r4<d+2dd+g8 f4>dd+g8f2 <
+1 r4d+2dd+d8 c4>dd+d8c2 r4<d+2dd+g8 a+2 g2&g d+2&d+8< a+2..>
+1 [
+1 @e1 V10 L16 O5
+1 [fgg+>d+<]8
+1 [fgg+>d<]4   [fgg+>c+<]2 [fgg+>d+<]2
+1 [fgg+>d+<]8  [fgg+>d+<]8
+1 [fgg+>d<]8   [fgg+>c+<]4
+1 [fgg+a+]3    fgg+>c<
+1 [fgg+>d+<]7  fgg+>c<
+1 ]0
+
+2 @e1 V10 L16 O4 \1
+2 r4g+2gg+g8 f4>gg+g8f4<f4 r4g+2gg+a+8  g+4>gg+a+8g+4<f4
+2 r4g+2gg+g8 f4>gg+g8f4<f4 r4g+2gg+a+8> d+2<a+2&a+ g2&g8 d+2..>
+2 [
+2 r16
+2 @e1 V8 L16 O5 \1
+2 [fgg+>d+<]8
+2 [fgg+>d<]4   [fgg+>c+<]2 [fgg+>d+<]2
+2 [fgg+>d+<]8  [fgg+>d+<]8
+2 [fgg+>d<]8   [fgg+>c+<]4
+2 [fgg+a+]3    fgg+>c<
+2 [fgg+>d+<]7  fgg+
+2 ]0
+
+*30 = {@e1  V9}
+*31 = {@e10 V11}
+*32 = {@e11 V11}
+
+3 L16 O5 \1
+3 *31 c4 *32 d+2 *30 dd+d8 c4>dd+d8c2< *31 c4 *32 d+2 *30 dd+g8 f4>dd+g8f2 <
+3 *31 c4 *32 d+2 *30 dd+d8 c4>dd+d8c2< *31 c4 *32 d+2 *30 dd+g8 a+2 g2&g d+2&d+8< a+2..>
+3 [
+3 @e1 V10 L16 O4
+3 f2.g4         g+2>d+4..d32d+32 d2...c+32d32    c+2d+2
+3 f1&           f1<              g+2.a+4>        c2>c4..<a+32>c32<
+3 a+1           f2.g8.g+32a+32   g+gf2.&fg32g+32 gfd+2&d+8c4
+3 fgfd+f2&fgfd+ f32g32f2...
+3 ]0

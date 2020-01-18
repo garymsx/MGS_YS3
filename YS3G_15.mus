@@ -1,0 +1,160 @@
+;[gain=1.0 name=YS3G_15 duration=300s fade=5s]
+#opll_mode 0
+#tempo 112
+#title { "厳格なる闘志"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc 0=1000
+;#alloc { 3=100
+;        ,5=256
+;       }
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, fedcd }
+
+@e10 = {2, 0, eca86420 }
+@e11 = {2, 0, fedc0=90 }
+@e12 = {2,10, fedc0=90 }
+@e13 = {2,20, fedc0=90 }
+
+@e21 = {0, 0, fed }
+@e22 = {0, 0, def }
+
+@e30 = {0, 0, ffffffffff0 }
+
+;* ロングバス
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {20, 4,15, 2, 2, 0, 1, 1, 0, 0, 0, 0, 0
+             ,15, 1, 2, 0, 0, 4, 0, 0, 0, 0, 0}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
+
+9A r4
+9A [
+9  @6 @e0 V13 L8 O5 H10,1,1,2 \0
+A  @0 @e0 V12 L8 O5 H10,1,1,2 \0
+9A e4d2&dc& c4d2&d<b& b4>c2&c<a& a4g+2&g+e>
+9A e4d2&dc& c4d2&d<b& b4>c2&cd&  d4e2&e4>
+9A c16<b16a2&aab> c4c4g4e4 f2&f<ab>c    c4d<b2&b>
+9A c16<b16a2&aab> c4c4g4e4 d4.d+e<b>dc< a2&a4
+9  @14 @e21 V14 L8 O5 HF \0
+A  @14 @e21 V10 L8 O6 HF \-1
+9A e4
+9A a2&ab>cd< b4>c4d4<b4> e4f4g4<b4> c4<b4a4e4
+9A f2&fdef   a4a4b4>c4<  b2&b4a4    g+1>
+9  @6 @e0 V13 L8 O5 H10,1,1,2 \0
+A  @0 @e0 V12 L8 O5 H10,1,1,2 \0
+9A a16e16a16b16>c16<b16>c16d16e4g4 f4d4e2< b4>d4c2< b4g+4a2
+9A a16e16a16b16>c16<b16>c16d16e4g4 f4d4e2< b4>d4c2< b2.a16b16a
+9A a16e16b16g+16>d16<b16>f16e16g+16e16b16g+16>d16<b16>f16e16& e16g+16d16f16e16<b16>d16<g+16b16f16g+16d16e16<b16>d16e16
+9A ]0
+
+BC r4
+BC [
+B  @6 @e0 V12 L8 O5 HO H10,1,1,2 \1
+C  @0 @e0 V11 L8 O5 HO H10,1,1,2 \1
+BC r8
+BC e4d2&dc& c4d2&d<b& b4>c2&c<a& a4g+2&g+>
+BC a4a2&aa& a4g2&gg&  g4f2&fg+&  g+4g+2&g+4>
+BC r
+BC c16<b16a2&aab> c4c4g4e4 f2&f<ab>c    c4d<b2&b>
+BC c16<b16a2&aab> c4c4g4e4 d4.d+e<b>dc< a2&a4
+B  @14 @e21 V12 L8 O5 HF \0
+C  @14 @e21 V8  L8 O6 HF \1
+BC e
+BC f2&fgab  d4e4f4d4   g4>c4d4<g+4 a4c4c4c4
+BC c2&c<b>c df4f4f+4a4 g+2&g+4e4<  b4>f4e4d4>
+B  @6 @e0 V10 L8 O5 HO H10,1,1,2 \1
+C  @0 @e0 V9  L8 O5 HO H10,1,1,2 \1
+BC r
+BC a16e16a16b16>c16<b16>c16d16e4g4 f4d4e2< b4>d4c2< b4g+4a2
+BC a16e16a16b16>c16<b16>c16d16e4g4 f4d4e2< b4>d4c2< b2.a16b16a
+BC a16e16b16g+16>d16<b16>f16e16g+16e16b16g+16>d16<b16>f16e16& e16g+16d16f16e16<b16>d16<g+16b16f16g+16d16e16<b16
+BC ]0
+
+
+;D  @13      V13 L8 O2 H10,1,1,2
+;E  @14 @e22 V13 L8 O2 H10,1,1,2 \1
+D  @15 V13 L8 O2 H10,1,1,2
+E  @15 V11 L8 O2 H10,1,1,2 \1
+DE e16r16e16e16
+DE [
+DE [a2.. g1 f1 e2.. e16r16e16e16]
+DE a4a4a4ab> c4c4c4ce   d4d4d4dd+ e4e4e4e4<
+DE a4a4a4ab> c4c4c4cc+  d4d4e4e4< a4a4a4g4
+DE f4f4f4f4  g4g4g4g4>  c4c4<b4b4 a4a4g4g4
+DE f4f4f4f4> d4d4d+4d+4 e4e4e4e4  e4d4c4<b4
+DE a1 a1 a1 e2 a2
+DE a1 a1 a1
+DE e1 e1 e1
+DE ]0
+
+
+1 r4
+1 [
+1 @e1 V7 L16 O6
+1 [c<bae>]4 V+ [c<bae>]4 V+ [c<bae>]4 c<bae> c<bg+e deg+b> deg+b
+1 [c<bae>]4 V+ [c<bae>]4 V+ [c<bae>]4 c<bae> c<bg+e deg+b> deg+b<
+1 aedc edc<b aeab> c8d8 e4e4c4<g4 a8d8f8a8>c8<f8a8>c8 e8<g+8g+8b8>e8<b8>e8<e8>
+1 aedc edc<b aeab> c8d8 e4e4c4<g4 a8d8f8a8b8e8g+8b8>> c<baedecd<b>c<ab>cdeg
+1 ag+a4c4e4a8  g4a4b4g4> c4<g4b4g+4 a4e4f4g4
+1 ag+a4c4e4a8> d4c4<b4a4 g+8e8b8a8>d8c8<b8a8 g+8a8b8>d8e8d8c8<b8
+1 c2<aeab>c<b>ce d4<b4>c8<e8a8>c8< g4b4a8c8e8a8  g+4e4>c2
+1 c2<aeab>c<b>ce d4<b4>c8<e8a8>c8< g4b4a8c8e8a8> d2.cdc8<
+1 b1&b1
+1 ]0
+
+2 r4
+2 [
+2 r
+2 @e1 V5 L16 O6 \1
+2 [c<bae>]4 [c<bae>]4 V+ [c<bae>]4 V+ c<bae> c<bg+e deg+b> deg+b
+2 [c<bae>]4 [c<bae>]4 V+ [c<bae>]4 V+ c<bae> c<bg+e deg+b> deg+<
+2 ec<ba>c<bae8ce8a8b8 g4g4e4c4 d8<f8a8>d8a8d8d8d+8    g+8d8d8e8g+8e8g+8<g+8>>
+2 ec<ba>c<bae8ce8a8b8 g4g4e4c4 d8<f8a8>d8g+8<b4>e8r>> c<baedecd<b>c<ab>cdeg
+2 ag+a4c4e4a8  g4a4b4g4> c4<g4b4g+4          a4e4f4g4
+2 ag+a4c4e4a8> d4c4<b4a4 g+8e8b8a8>d8c8<b8a8 g+8a8b8>d8e8d8c8<b
+2 e2<ece8aea>c< b4e4a8c8e8a8 d4g4e8<a8>c8e8 e4<b4a2>>
+2 e2<ece8aea>c< b4e4a8c8e8a8 d4g4e8<a8>c8e8 b2&b4aba8
+2 g+1&g+1
+2 ]0
+
+3 @0 V11 L16 O5
+3 @e11cc@e12c8
+3 [
+3 [@e13c4.@e12c4.@e11c4]3 @e13c4.@e12c4.@e11c8@e12c8
+3 [@e13c4.@e12c4.@e11c4]3 @e13c4.@e12c4.@e12cccc
+3 [[@e11c8cc]3 @e13c8@e12c8]3
+3 [@e11c8cc]3 @e12c8cc
+3 [[@e11c8cc]3 @e13c8@e12c8]3
+3 @e11c8cc @e12c8@e11c@e12c @e11cc@e12c@e11c c@e12c@e11cc
+3 [@e11c8cc @e12c8@e11cc]7 @e12c8@e11cc @e12c8@e11cc
+3 [@e11c8cc @e12c8@e11cc]7 V+ @e12cccccccc V-
+3 [@e13c2@e11c4@e12c8@e11c8 &c4@e13c4.@e11c8@e12c4]4
+3 @e11cc@e12c4 V- @e11cc@e12c4 V- @e11cc@e12c4 V- @e11cc@e12c4 V- @e11cc@e12c8 V+4 @e11cc@e12c8
+3 ]0
+

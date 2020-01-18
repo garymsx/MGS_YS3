@@ -1,0 +1,87 @@
+;[gain=1.0 name=YS3G_01 duration=300s fade=5s]
+#opll_mode 0
+#tempo 110
+#title { "Dancing on the road"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc { 9=1000,a=1000,b=1000,c=1000,d=2000,e=1000,1=1000,2=1000,3=1000}
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, fe8=20 }
+
+@e10 = {2, 3, fedc0=60 }
+@e11 = {2, 3, dcba0=60 }
+
+@e21 = {0, 0, abcdef }
+
+@e30 = {0, 0, ffffffffff0 }
+
+;* オーボエ
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {16, 2,15, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1
+             ,13, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0}
+
+;*0 = {Y6,255 Y7,255}
+*0 = {}
+*1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
+
+9A [
+9  @15 V13 L8 O5 H10,1,1,2
+A  @15 V11 L8 O5 H10,1,1,2 \1
+A  r16
+9A gbab>c<b24>c24<b24ag f+f+16g16ag16f+16gf+16e16d4 gbab>c<b24>c24<b24ag f+f+16g16ag16f+16gggr>
+9A [cccc24d24c24<bag4    aagabgg4> cccc24d24c24<bag4 | a1>] a>d2c<b
+9  a
+A  a16
+9A ]0
+
+DE [
+D  @13 V13 L8 O3
+E  @13 V11 L8 O3 \1
+DE grdrcr<gr> dr<ar>gdef+ grdrcr<gr> dd16e16f+e16d16gggr
+DE [cr<gr>grdrdr<ar>grdrcr<gr>grdrdr<ar>ddef+]
+DE ]0
+
+1 [
+1 @e1 V11 L16 O4
+1 r8g8r8g8r8g8r8g8 r8a8r8a8b8a8g4 r8g8r8g8r8g8r8g8 r8a8r8a8>dc<bagaa+b
+1 [rcc8rcc8rgg8rgg8 rdd8rdd8r8>ddgg>dd<< rcc8rcc8rgg8rgg8 | rdd8rdd8f+f+aa>ddf+f+<] rdd8rdd8r8d8d8d8
+1 ]0
+
+2 [
+2 @e1 V11 L16 O3 \1
+2 r8b8r8b8>r8c8r8c8  r8d8r8d8g8d8g8d8< r8b8r8b8>r8c8r8c8 r8 V-2 d8r8d8>dc<bagaa+b V+2
+2 [rgg8rgg8<rbb8rbb8> raa8raa8r8bdgg>dd<  rgg8rgg8<rbb8rbb8> | raa8raa8ddf+f+aa>dd<] raa8raa8r8a8a8a8
+2 ]0
+
+3 [
+3 @e10 V11 L16 O3
+3 @e10 c4 c8@e11cc @e10cc8r c8@e11cc
+3 @e10 c4 c8@e11cc @e10cc8c cc8r
+3 @e10 c4 c4           cc8r c8@e11cc
+3 @e10 cc8c rcc8 c8c32c32c32c32& c8c8
+3 [@e10 c8cc c8cc c8cc& cc8c  @e10 c8cc c8cc c8cc cccc]4
+3 ]0

@@ -1,0 +1,96 @@
+;[gain=1.0 name=YS3G_18 duration=300s fade=5s]
+#opll_mode 0
+#tempo 112
+#title { "慈愛の祈り"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+;#alloc 0=1000
+;#alloc { 9=1000,a=1000,b=1000,c=1000,d=1000,e=1000,1=1000,2=1000,3=1000}
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, fedcd}
+@e2  = {1, 0, fe8=120}
+
+;* ハープシコード2
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {20, 3,15, 2, 2, 0, 0, 6, 0, 0, 0, 0, 1
+             ,15, 2,10, 0, 0, 2, 0, 0, 0, 1, 0}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
+
+1239ABC V0 L4 HF HO
+
+9A [
+9 @15 V13 L16 O4
+A @15 V11 L16 O4 \1
+A r16
+9A e<ba+b>  f+<ba+b> g<ba+b>  e<ba+b>  d+<ba+b> e<ba+b>  f+<ba+b> d+<ba+b>
+9A e<ba+b>  f+<ba+b> g<ba+b>  e<ba+b>  d+<ba+b  abga     f+gef+   d+ef+a
+9A g>gf+g   b<ba+b>  a<ba+b>  g<ba+b>  g<ag+a>  f+<ag+a> e<ag+a>  f+<ag+a>
+9A f+<gf+g> e<gf+g>  d+<gf+g> e<gf+g>  g<ag+a>  f+<ag+a> e<ag+a>  f+<ag+a>
+9A f+<ba+b> g<ba+b>  d+<ba+b> e<ba+b>  f+<gf+g> g<gf+g>  d+<gf+g> e<gf+g>
+9  f+<ag+a> g<ag+a>  d+<ag+a> e<ga+>c+ T98     e<f+a>c< a+b>d+c+ d+2   T112
+A  f+<ag+a> g<ag+a>  d+<ag+a> e<ga+>   T98 r16 e<f+a>c< a+b>d+c+ d+4.. T112
+9A ]0
+
+B [
+B @15 V12 L16 O2
+B e1 b1  e1     b1
+B g1 d1  c1     d1
+B e1 c1< a2.a+4 T98 b1 T112
+B ]0
+
+C [
+C @15 V12 L16 O2
+C b1  >e-1< b1 >e-1
+C d1< a1    e1 f+1
+C b1  e1    c2.c+4 e1 T112
+C ]0
+
+1 [
+1 @e1 V11 L16 O4
+1 g8r8a8r8b8r8g8r8   f+8r8g8r8a8r8f+8r8
+1 g8r8a8r8b8r8g8r8   f+4>abgaf+gef+d+ef+c<<
+1 b>babg8r8f+8r8d8r8 e8r8d8r8c+8r8d8r8
+1 c8r8g8r8f+8r8g8r8  e8r8d8r8c+8r8d8r8
+1 a8r8b8r8f+8r8g8r8  a8r8b8r8f+8r8g8r8
+1 a8r8b8r8f+8r8gega+ T98 bd+f+af+8>f+8bf+ad+f+<b>d+<a T112
+1 ]0
+
+2 [
+2 @e2 V11 L16 O3
+2 b1> d+1< b1>    d+1
+2 d1< a1>  e1     d4f+2.
+2 e1  e1   c2.c+4 T98 d+1 T112
+2 ]0
+
+3 [
+3 @e2 V9  L16 O3 \1
+3 b1> d+1< b1>    @e1 d+4&d+>abgaf+gef+d+ef+c< @e2
+3 d1< a1>  e1     d4f+2.
+3 e1  e1   c2.c+4 T98 d+2> @e1 fbf+ad+f+<b>d+ T112
+3 ]0

@@ -6,7 +6,7 @@
 ; fade    : specify the fade time.
 #opll_mode 0
 #tempo 135
-#title { "貿易の町レドモンド"}
+#title { "貿易の町レドモント"}
 
 ;マシンID
 ; 1:SONY製マシン
@@ -42,9 +42,9 @@
 @e2  = {1, 0, fedcbc}
 
 @e11 = {2, 0, ecba9876543210 }
-@e12 = {2,10, feccbbaa9876543210 }
-@e13 = {2,20, feccbbaa9876543210 }
-@e14 = {2, 3, feccbbaa9876543210 }
+@e12 = {2,10, fdccbbaa9876543210 }
+@e13 = {2,20, fdccbbaa9876543210 }
+@e14 = {2, 3, fdccbbaa9876543210 }
 
 @e21 = {0, 0, fedcba9 }
 
@@ -55,8 +55,8 @@
 
 ;* シンセピアノ
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
-@v16 = {16, 2,15, 4, 3, 0, 1, 2, 0, 0, 0, 1, 1
-             ,15, 2, 1, 1, 0, 2, 0, 0, 0, 1, 0}
+@v16 = {28, 5,15, 4, 2, 0, 0, 2, 0, 0, 0, 0, 1
+             ,15, 6, 2, 3, 0, 4, 0, 0, 0, 0, 0}
 
 *0 = {Y6,255 Y7,255}
 *1 = {Y14,32}
@@ -71,8 +71,8 @@ A  @15 V10 L16 O5 H10,1,1,2 \1 r
 9A ]
 9 g2..
 A g2.
-9 @16 V13 L16 O4 H10,1,1,2
-A @16 V11 L16 O5 H10,1,1,2
+9 @16 V14 L16 O4 H10,1,1,2
+A @16 V12 L16 O5 H10,1,1,2 \1
 9A g+8 a8b8>c8e4d8c8<a8 b4>c4d4g4 e8f8e8d+8e8<b8>d8c8 <a2&a8b8>c8e8
 9A <f8a8>e8d4e8f8a8 g8<b8>d8g8b8a4d8 e2&e8<b8>d8c8 <b8g8b8a8e2
 9A f8e8f8a8r8>e4d8 <b8>c8d8e8f8g8a8b8 &b8e8d+8e8b8a8g+8b8 >c4<b4a4e4
@@ -92,8 +92,8 @@ BC >f1 e1 g1 | e1
 BC ]
 B  e2..
 C  e2.
-B @16 V11 L16 O4 H10,1,2,2
-C @16 V9  L16 O5 H10,1,2,2 \1
+B @16 V12 L16 O4 H10,1,2,2
+C @16 V10 L16 O5 H10,1,2,2 \1
 BC e8 f4a8>c4<a4f8 g4a4b4>d4 <g+8a8g+8g8g+8e8g+4 e8c8c8e4g+8a8>c8
 BC <c4>c8<a2>c8 d8<d8g8b8>d4<b4 >c2&c8<g8b8a8 g8e8g8c8c+2
 BC c4.f8r8a4a8 d8e8f8g8b8d4g8 >e8<b4b8>g+8e8d8e8 a4e4e4c4

@@ -1,0 +1,84 @@
+;[gain=1.0 name=YS3G_19 duration=300s fade=5s]
+#opll_mode 0
+#tempo 150
+#title { "光りの鍵"}
+
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
+;#machine_id 0
+
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
+;#lfo_mode 0
+
+;トラックバッファを割り当てます。
+#alloc { 9=1000,a=1000,b=1000,c=1000,d=2000,e=1000,1=1000,2=1000,3=1000}
+
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
+; *a10
+;#macro_offset <定義文字 = no>
+#macro_offset a = 100
+#macro_offset b = 120
+#macro_offset c = 140
+#macro_offset d = 160
+#macro_offset e = 180
+#macro_offset f = 200
+#macro_offset r = 220
+#macro_offset g = 230
+#macro_offset h = 240
+
+@e0  = {1, 0, f }
+@e1  = {1, 0, def }
+
+@e11 = {2, 3, ecbbaa9876543210 }
+@e12 = {2,15, fdccbba9876543210 }
+@e13 = {2, 8, fdccbbaa9876543210 }
+@e14 = {2,15, fd0=80 }
+
+@e20 = {0, 0, fedcba}
+
+@e30 = {0, 0, ffffffffff0 }
+
+;* ふわー
+;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
+@v15 = {45, 0,15, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0
+             , 8, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0}
+
+*0 = {Y6,255 Y7,255}
+*1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
+
+9  @3 V14 L8 O4
+A  @3 V12 L8 O4 \1
+9A V-3 a1> V+ d1 V+ c+1< V+ g+1
+9A [
+9A b1  a1   d1   g1
+9A f+1 &f+1 a+1  g1
+9A a1  &a1  a+1  g1
+9A f+1 &f+1 g1   &g1  d1
+9A a+1 a1>  d1   c+1< g+1
+9A ]0
+
+B @3 V14 L8 O4
+B V-3 f+1 V+ a+1 V+ a1 V+ d1
+B [
+B f1  f+1< a+1> e1
+B d1  &d1  g1   d1
+B f+1 &f+1 g1<  a+1>
+B d1  &d1  d1   &d1< a+1>
+B g1  f+1  a+1  a1   d1
+B ]0
+
+1 @e1 V10 L8 O6
+2 @e1 V8 L8 O6 r8 
+3 @e1 V6 L8 O6 r4.
+123 V-6
+123 af+ed< V+ af+ed> V+ a+ged< V+ a+ged> V+ aedc+< V+ aedc+< V+ bg+d<b> deg+b>
+123 [
+123 d<bg+fd<bg+f>> dc+af+dc+<af+>> d<a+gfed<a+g   dega+>dega+
+123 af+ba>dc+ed    gf+bagf+ed      c+<a+gec+<a+ge dega+>dega+
+123 af+ba>dc+ed    f+dc+<af+dc+<a  dega+>dega+    dc+edfegf
+123 af+dc+<af+dc+< af+dc+edf+e     ga+>degf+ed    ga+>degf+ed   a+gdgd<a+gd<
+123 a+>dga+ga+>df+  ed<af+ed<af+>> ed<a+ged<a+g>> c+<baedc+<ae  deg+b>deg+b>
+123 ]0
