@@ -1,27 +1,27 @@
 ;[gain=1.0 name=YS3G_10 duration=300s fade=5s]
 #opll_mode 0
 #tempo 150
-#title { "�C���o�[���Y�̈��"}
+#title { "イルバーンズの遺跡"}
 
-;�}�V��ID
-; 1:SONY���}�V��
-; 2:Panasonic���}�V��
-; 3:SANYO���}�V��
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
 ;#machine_id 0
 
-;LFO�̃��[�h�B1���w�肷���LFO�̑��x���኱���߂ɂȂ�܂��B�����l��0�ł��B
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
 ;#lfo_mode 0
 
-;�g���b�N�o�b�t�@�����蓖�Ă܂��B
+;トラックバッファを割り当てます。
 ;#alloc 0=1000
 ;#alloc { 3=100
 ;        ,5=256
 ;       }
 
-;1�����̉p����(A-Z)�Ƀ}�N���̃I�t�Z�b�g�ԍ����`���܂��B
-; a = 10�ƒ�`��`�����ꍇ�ꍇ�A�ȉ��ȉ���*20�Ɠ��ӂɂȂ�B
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
 ; *a10
-;#macro_offset <��`���� = no>
+;#macro_offset <定義文字 = no>
 #macro_offset a = 100
 #macro_offset b = 120
 #macro_offset c = 140
@@ -44,27 +44,27 @@
 
 @e30 = {0, 0, ffffffffff0 }
 
-;* �u���X
+;* ブラス
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v15 = {21, 7,15, 3, 1, 0, 1, 1, 0, 0, 0, 0, 0
              , 8, 1, 1, 0, 0, 2, 0, 0, 0, 0, 0}
 
-;* D.�M�^�[5(������)
+;* D.ギター5(高音域)
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v16 = { 1, 5,15, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0
              ,15, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1}
 
-;* �x��
+;* ベル
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v17 = {30, 7,13, 4, 6, 0, 0, 6, 0, 0, 0, 0, 0
              ,13, 1, 1, 1, 0, 2, 0, 1, 0, 1, 0}
 
-;* �����O�o�X2
+;* ロングバス2
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v18 = {20, 5,15, 1, 1, 0, 2, 2, 0, 1, 0, 0, 0
              ,15, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0}
 
-;* D.�M�^�[5(������)
+;* D.ギター5(中音域)
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v19 = { 3, 5,15, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0
              ,15, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1}

@@ -1,24 +1,24 @@
 ;[gain=1.0 name=YS3G_25 duration=300s fade=5s]
 #opll_mode 0
 #tempo 150
-#title { "—·—§‚¿‚Ì’©"}
+#title { "æ—…ç«‹ã¡ã®æœ"}
 
-;ƒ}ƒVƒ“ID
-; 1:SONY»ƒ}ƒVƒ“
-; 2:Panasonic»ƒ}ƒVƒ“
-; 3:SANYO»ƒ}ƒVƒ“
+;ãƒžã‚·ãƒ³ID
+; 1:SONYè£½ãƒžã‚·ãƒ³
+; 2:Panasonicè£½ãƒžã‚·ãƒ³
+; 3:SANYOè£½ãƒžã‚·ãƒ³
 ;#machine_id 0
 
-;LFO‚Ìƒ‚[ƒhB1‚ðŽw’è‚·‚é‚ÆLFO‚Ì‘¬“x‚ªŽáŠ±‘¬‚ß‚É‚È‚è‚Ü‚·B‰Šú’l‚Í0‚Å‚·B
+;LFOã®ãƒ¢ãƒ¼ãƒ‰ã€‚1ã‚’æŒ‡å®šã™ã‚‹ã¨LFOã®é€Ÿåº¦ãŒè‹¥å¹²é€Ÿã‚ã«ãªã‚Šã¾ã™ã€‚åˆæœŸå€¤ã¯0ã§ã™ã€‚
 ;#lfo_mode 0
 
-;ƒgƒ‰ƒbƒNƒoƒbƒtƒ@‚ðŠ„‚è“–‚Ä‚Ü‚·B
+;ãƒˆãƒ©ãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡ã‚’å‰²ã‚Šå½“ã¦ã¾ã™ã€‚
 ;#alloc { 9=1000,a=1000,b=1000,c=1000,d=2000,e=1000,1=1000,2=1000,3=1000}
 
-;1•¶Žš‚Ì‰p•¶Žš(A-Z)‚Éƒ}ƒNƒ‚ÌƒIƒtƒZƒbƒg”Ô†‚ð’è‹`‚µ‚Ü‚·B
-; a = 10‚Æ’è‹`’è‹`‚µ‚½ê‡ê‡AˆÈ‰ºˆÈ‰º‚Í*20‚Æ“¯ˆÓ‚É‚È‚éB
+;1æ–‡å­—ã®è‹±æ–‡å­—(A-Z)ã«ãƒžã‚¯ãƒ­ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆç•ªå·ã‚’å®šç¾©ã—ã¾ã™ã€‚
+; a = 10ã¨å®šç¾©å®šç¾©ã—ãŸå ´åˆå ´åˆã€ä»¥ä¸‹ä»¥ä¸‹ã¯*20ã¨åŒæ„ã«ãªã‚‹ã€‚
 ; *a10
-;#macro_offset <’è‹`•¶Žš = no>
+;#macro_offset <å®šç¾©æ–‡å­— = no>
 #macro_offset a = 100
 #macro_offset b = 120
 #macro_offset c = 140
@@ -33,9 +33,9 @@
 @e1  = {1, 0, fedcd }
 @e2  = {1, 0, feeddccaa }
 
-;* ƒ`ƒ…ƒ“ƒ`ƒ…ƒ“1
+;* ãƒãƒ¥ãƒ³ãƒãƒ¥ãƒ³1
 @e8  = {1, 0, d,\-2,ef,\2,f,\-2,ff,0,\2,f,\-2,ff,\2,f,\-2,ff,\2,f,\-2,ff,0 }
-;* ƒ`ƒ…ƒ“ƒ`ƒ…ƒ“2
+;* ãƒãƒ¥ãƒ³ãƒãƒ¥ãƒ³2
 @e9  = {1, 0, d,\-2,ef,\2,f,\-2,ff,\2,f,\-2,ff,\2,f,\-2,ff,0 }
 
 
@@ -48,17 +48,17 @@
 
 @e30 = {0, 0, ffffffffff0 }
 
-;* ƒuƒ‰ƒX
+;* ãƒ–ãƒ©ã‚¹
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 ;@v15 = {27, 7,15, 4, 2, 0, 0, 1, 0, 1, 0, 0, 0
 ;             ,10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
 
-;* ƒtƒ‹[ƒg
+;* ãƒ•ãƒ«ãƒ¼ãƒˆ
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 ;@v16 = {45, 0,15, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1
 ;             , 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
 
-;* ƒIƒ‹ƒKƒ“
+;* ã‚ªãƒ«ã‚¬ãƒ³
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 ;@v17 = {35, 4,15, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0
 ;             , 8, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0}
@@ -67,32 +67,32 @@
 ;@v18 = {45, 7,15, 1,15, 0, 0, 7, 0, 0, 0, 0, 0
 ;             , 8, 1, 3, 0, 0, 1, 0, 0, 0, 1, 0}
 
-;* ƒ^ƒ€(’á‰¹)
+;* ã‚¿ãƒ (ä½ŽéŸ³)
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v15 = {20, 7,15,10,15, 0, 0, 2, 0, 0, 0, 0, 0
              ,15, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0}
 
-;* ƒ^ƒ€(’á‰¹)
+;* ã‚¿ãƒ (ä½ŽéŸ³)
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v15 = {20, 2,15,10,15, 0, 0, 2, 0, 0, 0, 0, 0
              ,15, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0}
 
-;* ƒ^ƒ€
+;* ã‚¿ãƒ 
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v16 = { 0, 7,15,10,15, 0, 0, 2, 0, 0, 0, 0, 0
              ,15, 5, 5, 0, 0, 1, 0, 0, 0, 0, 0}
 
-;* ƒnƒCƒnƒbƒg
+;* ãƒã‚¤ãƒãƒƒãƒˆ
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v17 = { 0, 7,15, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0
              ,15, 7, 3, 5, 0,12, 0, 0, 0, 1, 0}
 
-;* ƒXƒ‰ƒbƒvƒmƒCƒY
+;* ã‚¹ãƒ©ãƒƒãƒ—ãƒŽã‚¤ã‚º
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v18 = { 0, 7,15, 1, 1, 0, 0,12, 0, 0, 0, 0, 0
              ,15, 6,15, 0, 0, 2, 0, 0, 0, 0, 0}
 
-;* ƒ`ƒ‡ƒbƒp[ƒx[ƒX2
+;* ãƒãƒ§ãƒƒãƒ‘ãƒ¼ãƒ™ãƒ¼ã‚¹2
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v19 = {20, 0,15,10, 1, 1, 0, 0, 0, 0, 0, 0, 1
              ,15, 6, 4, 4, 0, 7, 0, 0, 0, 0, 1}
@@ -207,7 +207,7 @@ DE a+1        r4a+4ra+4a&  a1              a1
 DE g+2.g+4&   g+4r4.g+4.   a+2.a+4&        a+4r4.a+4.
 DE b2.b4&     b1           b2.b4&          b2.>c+4
 DE d+2.d+4&   d+1          d+2.d+4&        d+2.r4
-; 2Žü–Ú‰¹F
+; 2å‘¨ç›®éŸ³è‰²
 E  @10 V13 L8 O3 H0,1,0,5 \1 @e20
 DE ]0
 
@@ -312,12 +312,12 @@ DE ]0
 *C3 = {@18 V13 O4 HO}
 
 C L8 H0,30,0,-10
-; 1Žü–Ú
+; 1å‘¨ç›®
 C [r1 r1 r1 r1]3
 C r1 r1 r1 r1 r1 r1
 C r1 r1
 C [r1]30 [r1]29 r2.*C0 g32f+16.r
-; 2Žü–Ú
+; 2å‘¨ç›®
 C [
 C [*C1 ddr *C2 ccr *C0 gr V-2 gr V-2 gr *C2 c16c16c16c16 *C3 c8 *C1 d]8
 C [*C1 dd r *C3 c *C0 g *C2 ccc r *C3 c *C0 g *C2 cc *C1 d | *C0 gr]4 *C0 gg

@@ -6,27 +6,27 @@
 ; fade    : specify the fade time.
 #opll_mode 0
 #tempo 101
-#title { "�`���ւ̏���"}
+#title { "冒険への序曲"}
 
-;�}�V��ID
-; 1:SONY���}�V��
-; 2:Panasonic���}�V��
-; 3:SANYO���}�V��
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
 ;#machine_id 0
 
-;LFO�̃��[�h�B1���w�肷���LFO�̑��x���኱���߂ɂȂ�܂��B�����l��0�ł��B
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
 ;#lfo_mode 0
 
-;�g���b�N�o�b�t�@�����蓖�Ă܂��B
+;トラックバッファを割り当てます。
 ;#alloc 0=1000
 ;#alloc { 3=100
 ;        ,5=256
 ;       }
 
-;1�����̉p����(A-Z)�Ƀ}�N���̃I�t�Z�b�g�ԍ����`���܂��B
-; a = 10�ƒ�`��`�����ꍇ�ꍇ�A�ȉ��ȉ���*20�Ɠ��ӂɂȂ�B
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
 ; *a10
-;#macro_offset <��`���� = no>
+;#macro_offset <定義文字 = no>
 #macro_offset a = 100
 #macro_offset b = 120
 #macro_offset c = 140
@@ -42,7 +42,7 @@
 
 @e11 = {2, 5, fe0=60 }
 
-;* �����O�o�X
+;* ロングバス
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v15 = {20, 4,15, 2, 2, 0, 1, 1, 0, 0, 0, 0, 0
              ,15, 1, 2, 0, 0, 4, 0, 0, 0, 0, 0}

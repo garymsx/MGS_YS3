@@ -3,22 +3,22 @@
 #tempo 112
 #title { "Wanderers from Ys"}
 
-;�}�V��ID
-; 1:SONY���}�V��
-; 2:Panasonic���}�V��
-; 3:SANYO���}�V��
+;マシンID
+; 1:SONY製マシン
+; 2:Panasonic製マシン
+; 3:SANYO製マシン
 ;#machine_id 0
 
-;LFO�̃��[�h�B1���w�肷���LFO�̑��x���኱���߂ɂȂ�܂��B�����l��0�ł��B
+;LFOのモード。1を指定するとLFOの速度が若干速めになります。初期値は0です。
 ;#lfo_mode 0
 
-;�g���b�N�o�b�t�@�����蓖�Ă܂��B
+;トラックバッファを割り当てます。
 #alloc { 9=1000,a=1000,b=1000,c=1000,d=2000,e=1000,1=1000,2=1000,3=1000}
 
-;1�����̉p����(A-Z)�Ƀ}�N���̃I�t�Z�b�g�ԍ����`���܂��B
-; a = 10�ƒ�`��`�����ꍇ�ꍇ�A�ȉ��ȉ���*20�Ɠ��ӂɂȂ�B
+;1文字の英文字(A-Z)にマクロのオフセット番号を定義します。
+; a = 10と定義定義した場合場合、以下以下は*20と同意になる。
 ; *a10
-;#macro_offset <��`���� = no>
+;#macro_offset <定義文字 = no>
 #macro_offset a = 100
 #macro_offset b = 120
 #macro_offset c = 140
@@ -41,22 +41,22 @@
 
 @e30 = {0, 0, ffffffffff0 }
 
-;* �z����
+;* ホルン
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v15 = {32, 7, 8, 2, 2, 0, 0, 1, 0, 1, 0, 0, 0
              , 7, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0}
 
-;* �u���X
+;* ブラス
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v16 = {27, 7,15, 4, 2, 0, 0, 1, 0, 1, 0, 0, 0
              ,10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
 
-;* �t���[�g
+;* フルート
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v17 = {45, 0,15, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1
              , 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
 
-;* �u���X2
+;* ブラス2
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v18 = {25, 6,13, 3, 3, 0, 0, 1, 0, 1, 0, 0, 0
              , 8, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0}
@@ -219,7 +219,7 @@ DE ]2
 3 [@e11 c8c24c24c24 c8c24c24c24 c8c24c24c24 c8c8]4
 3 ]2
 
-; -- MSX �ǉ��p�[�g
+; -- MSX 追加パート
 1239ABCDE T100
 
 9  @16 V13 L12 O4 H10,1,1,2 \0 
