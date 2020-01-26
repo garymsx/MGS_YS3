@@ -46,20 +46,20 @@
 *0 = {Y6,255 Y7,255}
 *1 = {Y14,32 Y39,5 Y23,80 Y40,1 Y24,192}
 
-9 @15 V13 L32 O4
+9 @15 V11 L32 O4
 9 rrrr rrrr eff+gg+[aa+]20 g+agg+f+gff+fefc+cc+<b>c+<b>c+<a+babg+gf+fec+c<ba+ag+g
 
-A @15 V15 L32 O4
+A @15 V13 L32 O4
 A cc+dd+eff+     [gf+]20 gff+efd+edd+c+dcc+<ba+babg+bgaf+afed+dc+c<ba+ag+gf+fe
 
-B @15 V13 L32 O4
+B @15 V11 L32 O4
 B rrrr dd+eff+g [g+g+]20 gg+f+gff+efd+edd+c<b>c<a+>c<a>c<g+a+g+a+gf+fed+dc<ba+ag+gf+
 
-1 @e1 V13 L32 O3 H0,10,0,-60
+1 @e1 V11 L32 O3 H0,10,0,-60
 1 [g16.]20 [g16.V-]10
 
-2 @e1 V13 L32 O2 H0,10,0,-60
+2 @e1 V11 L32 O2 H0,10,0,-60
 2 [g16.]20 [g16.V-]10
 
-3 @e10 V12 L1 O4
+3 @e10 V9 L1 O4
 3 c1 @e11 [c8V-]8
