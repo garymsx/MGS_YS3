@@ -56,30 +56,6 @@
 
 @e30 = {0, 0, ffffffffff0 }
 
-;* ブラス
-;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
-;@v15 = {27, 7,15, 4, 2, 0, 0, 1, 0, 1, 0, 0, 0
-;             ,10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
-
-;* フルート
-;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
-;@v16 = {45, 0,15, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1
-;             , 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
-
-;* オルガン
-;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
-;@v17 = {35, 4,15, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0
-;             , 8, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0}
-
-;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
-;@v18 = {45, 7,15, 1,15, 0, 0, 7, 0, 0, 0, 0, 0
-;             , 8, 1, 3, 0, 0, 1, 0, 0, 0, 1, 0}
-
-;* タム
-;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
-@v16 = { 0, 7,15,10,15, 0, 0, 2, 0, 0, 0, 0, 0
-             ,15, 5, 5, 0, 0, 1, 0, 0, 0, 0, 0}
-             
 ;* タム
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v16 = {30, 0,15,10,15, 0, 0, 2, 0, 0, 0, 0, 1
@@ -89,11 +65,6 @@
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
 @v17 = { 5, 7,15, 0, 0, 0, 0,10, 0, 0, 0, 0, 0
              ,15, 7,15, 0, 0,14, 0, 0, 0, 0, 0}
-
-;* スラップノイズ
-;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
-@v18 = { 0, 7,15, 1, 1, 0, 0,12, 0, 0, 0, 0, 0
-             ,15, 6,15, 0, 0, 2, 0, 0, 0, 0, 0}
 
 ;* チョッパーベース2
 ;       TL FB AR DR SL RR KL MT,AM,VB,EG,KR,DT
@@ -348,19 +319,6 @@ G [r1 r1 r1 r1]3
 G r1 r1 r1 r1 r1 r1
 G r1 r1
 G [r1]30 [r1]29 r2. *G1 c32c16.r
-; 2周目 ハイハットある版
-;G [
-;G [rrr *G1 ccr rrrrrr *G1 c16c16c16c16 *G0 c8 r]8
-;G [rrr *G0 c r *G1 ccc r *G0 c r *G1 cc r | rr]4 rr
-;G [rr *G1 cc rr *G1 cc | rr rr rr *G1 cc]4 rr rrrrrr
-;G [rr *G1 cc cr rr *G1 cccr r *G0 crc rr *G1 cc cr rr *G1 cc rrrrrr]
-;G [rr *G1 cc rr *G1 cc rr rrrr *G1 cc]
-;G rr *G1 cc rr *G1 cc rr *G1 cc rr rr
-;G [rr *G1 cc rr *G1 cc] rr *G1 cc rr rr
-;G [*G1 cc rr r r *G1 cc rr *G1 cc rr rr] *G1 cc rrrrrr
-;G [rr *G1 cc rr *G1 c r | rr rr rr *G1 cc]3 rrrrrrrr
-;G ]0
-
 ; 2周目 ハイハットなし版
 G [
 G [*G1 ccr rrr *G1 cr V-2 cr V-2 cr r4 *G3 c8 *G1 c]8
