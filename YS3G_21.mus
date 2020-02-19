@@ -101,10 +101,12 @@ DE ]0
 2  @e1 V8  L8 O5 H10,1,1,1 \1
 12 r8 e&
 12 [
+12 [
 12  [e4b4e>c4<e& e>d4<e4>c4<e] f4>c4<f>d4<f& f>e4<f4>d4<f e4b4e>c4<e& e>d4<e4>c4<e
 12 ] <
 12 [dfadf>c<df adf>cc<bab egbeg>d<eg beg>ddc<b>c<]
-12 [b>d+f+b<]8
+12 [b>d+f+b<]8>
+12 ]0
 
 *F0 = {V15 O3 L16 H0,20,0,-20}
 *F1 = {V14 O4 L16 H0,20,0,-10}
